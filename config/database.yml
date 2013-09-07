@@ -48,14 +48,15 @@ test:
   adapter: postgresql
   encoding: unicode
   database: sensoriumhealth_test
+  host: localhost
   pool: 5
   username: sensoriumhealth
-  password:
+  password: password
 
 production:
   adapter: postgresql
-  encoding: unicode
-  database: sensoriumhealth_production
-  pool: 5
-  username: sensoriumhealth
-  password:
+  port: 5432
+  host: ec2-54-221-236-207.compute-1.amazonaws.com
+  database: d3k7r7csksbkss
+  username: gbnoxmfhpchoew
+  password: SBYC9MgSt649EqgCjdcG-c1XeG

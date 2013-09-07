@@ -1,2 +1,42 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<% provide(:title, 'Home') %>
+<!DOCTYPE html>
+<html>
+   <body>
+        <div id="headerBar">
+            <p><a href="static_pages/home"><img src="./app/assets/images/brighthearts/BrightHeartsHeader.png" align="right"></a></p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div id="contentWrapper">
+            <p style="float: left;">&nbsp;</p>
+                <span style="float: left;"><body onLoad="switchImage('slideshow')">
+            <h1>Welcome to BrightHearts!</h1>
+            <div>
+                <p style="float: left;">
+                <img style="padding-right:10px;" name="slideshow" src="assets/images/brighthearts/1.jpg" width=400 height=300 border=0></p>
+            </span>
+            <p><br>The aim of the BrighHearts project is to design, build and then test whether a biofeedback assisted relaxation training ‘app’ can offer
+            benefits above and beyond current iPad-based ‘distraction’ methods 
+            for children who under go painful recurrent procedures.</p>
+                <center>
+                    <!-- need to include all the form stuff later -->
+                </center>
+                <center>
+                    <img src="assets/images/brighthearts/SponsorsLogo.png">
+                
+                </div>
+            </div>
+        </center>
+        <div id="footerBar"><center>
+                BrightHearts© 2013</center></div>
+
+
+        </body>
+
+</html>
+
