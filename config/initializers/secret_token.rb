@@ -9,4 +9,20 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Sensoriumhealth::Application.config.secret_key_base = 'ac7810512cedd2148412e766e90c0d290faa63837b2d170e38f6f96625a2ac28e779137f000b8850e09f4da157c19699d3f8b27db2fd6b03bafef59cb7a99485'
+
+require 'securerandom'
+
+def secure_token
+    token_file = Rails.root.join('.secret')
+    if File.exist?(token_file)
+        # Use the existing token.
+        File.read(token_file).chomp
+    else
+        # Generate a new token and store it in token_file.
+        token = SecureRandom.hex(64)
+        File.write(token_file, token)
+        token
+    end
+end
+
+Sensoriumhealth::Application.config.secret_key_base = secure_token
