@@ -19,7 +19,7 @@
             <a href="#" class="btn btn-large btn-primary">Sign up now!</a> 
             -->
             <%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>
-
+        </div>
             <!-- Line below is translated into:
             <img alt="BrightHearts" src="/assests/brighthearts/1.jpg" />
             Link_to shows off the image_tag helper which takes arguments the path to an image and an optional
@@ -28,9 +28,7 @@
             This is required by HTML standard.
             Rails does this automatically (the text is the image filename) if alt tag is not included.
             -->
-            <%= link_to image_tag("brighthearts1.jpg", alt: "BrightHearts") %>
-        </div>
-            
+            <%= link_to image_tag("brighthearts1.jpg", alt: "BrightHearts"), 'http://rubyonrails.org/'  %>
 
    </body>
 
