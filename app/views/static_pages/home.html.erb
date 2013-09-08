@@ -4,11 +4,13 @@
     <body>
         <!-- The hero-unit CSS class has special meaning to Bootstrap, as do the btn, btn-large, btn-primary
         classes in the signup button below -->
-        <div class="center hero-unit">
+        <div class="hero-unit">
+            <h1>Welcome to BrightHearts!</h1>
+            <p style="float: left;">
+            <%= image_tag "brighthearts1.jpg", :class => "style_brighthearts1_image", alt: "BrighHearts", width: 400, height: 300, :style => "padding-right: 10px" %>
+            </p>
 
-            <h1>Welcome to BrightHearts</h1>
-            <h2>This is the home page for the BrightHearts project</h2>
-            <p>The aim of the BrightHearts project is to design, build and then test whether 
+            <p><br>The aim of the BrightHearts project is to design, build and then test whether 
             a biofeedback assisted relaxation training 'app' can offer benefits 
             above and beyond current iPad-based 'distraction' methods 
             for children who undergo painful recurrent medical procedures.
@@ -18,18 +20,21 @@
             the first link_to creates a stub link of the form 
             <a href="#" class="btn btn-large btn-primary">Sign up now!</a> 
             -->
-            <%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>
+            <%= link_to "Sign up", '#', class: "btn btn-large btn-primary" %>
+            <%= link_to "Login", '#', class: "btn btn-large btn-primary" %>
+            <br>
+            <br>
+            <br>
         </div>
             <!-- Line below is translated into:
-            <img alt="BrightHearts" src="/assests/brighthearts/1.jpg" />
+            <img alt="BrightHearts" src="/assests/SponsorsLogo.png" />
             Link_to shows off the image_tag helper which takes arguments the path to an image and an optional
             options hash, setting the alt attribute of the image tag using symbols.
             Alt attribute will display the text if there is no image.
             This is required by HTML standard.
             Rails does this automatically (the text is the image filename) if alt tag is not included.
             -->
-            <%= link_to image_tag("brighthearts1.jpg", alt: "BrightHearts"), 'http://rubyonrails.org/'  %>
-
+            <%= image_tag "SponsorsLogo.png", alt: "BrightHearts sponsor logo" %>
    </body>
 
 </html>

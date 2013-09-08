@@ -1,0 +1,21 @@
+<!-- Applicable to HTML 5:>
+< Header tags indicates elements that should go at the top of the page.>
+< Each header tag has 3 css classes - navbar, navbar-fixed-top, navbar-inverse >
+-->
+<Header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar-inner">
+        <!-- container has special meaning to bootstrap. 
+        yield method inserts the contents of eac page into the site layout -->
+        <div class="container">
+            <!-- link_to create links. First argument is the link text, second is the URL -->                               <%= link_to image_tag("BrightHeartsHeader.png", alt: "BrightHearts"), 'http://sensoriumhealth.herokuapp.com' %>
+            <nav>
+                <ul class="nav pull-right">
+                    <li><%= link_to "Home", '#' %></li>
+                    <li><%= link_to "Help", '#' %></li>
+                    <li><%= link_to "About Us", '#' %></li>
+                     <li><%= link_to "Sign in", '#' %></li>
+                </ul>
+            </nav>                                  
+        </div>
+    </div>
+</header>
