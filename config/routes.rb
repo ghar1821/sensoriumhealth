@@ -1,7 +1,27 @@
 Sensoriumhealth::Application.routes.draw do
-  get "static_pages/home"
-  get "static_pages/help"
-  get "static_pages/about"
+    # route mapping for home page
+    # this code maps the root URL / to /static_pages/home.
+    # This means http://localhost:3000 is something other than defails rails page.
+    # root_path -> '/'
+    # root_url -> 'http://localhost:3000/'
+    root 'static_pages#home'
+
+    # Code below matches at GET requests for '/about' and routes it to the about
+    # action in the StaticPages controller.
+    # The code: match '/about' automatically creates named routes for use
+    # in the controllers and views:
+    # about_path -> '/about'
+    # about_url -> 'http://localhost:3000/about'
+    match '/help',  to: 'static_pages#help',    via: 'get'
+    match '/about',  to: 'static_pages#about',    via: 'get'
+    match '/contact',  to: 'static_pages#contact',    via: 'get'  
+
+    # The old way. Not nice URLs
+        #get "static_pages/home"
+        #get "static_pages/help"
+        #get "static_pages/about"
+        #get "static_pages/contact"
+
   resources :microposts
 
   resources :users
