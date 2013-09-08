@@ -4,6 +4,10 @@ ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
+# Bootstrap, a framework from Twitter that makes it easy to add nice web design and user interface
+# elements to an HTML5 application
+gem 'bootstrap-sass', '2.3.2.2'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.16.0'
 
