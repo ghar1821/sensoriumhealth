@@ -7,15 +7,8 @@
         <!-- container has special meaning to bootstrap. 
         yield method inserts the contents of eac page into the site layout -->
         <div class="container">
-            <!-- link_to create links. First argument is the link text, second is the URL -->                               <%= link_to image_tag("BrightHeartsHeader.png", alt: "BrightHearts"), 'http://sensoriumhealth.herokuapp.com' %>
-            <nav>
-                <ul class="nav pull-right">
-                    <li><%= link_to "Home", root_path %></li>
-                    <li><%= link_to "Help", help_path %></li>
-                    <li><%= link_to "About Us", about_path %></li>
-                     <li><%= link_to "Sign in", '#' %></li>
-                </ul>
-            </nav>                                  
+            <!-- link_to create links. First argument is the link text, second is the URL -->                               <%= link_to image_tag("BrightHeartsHeader.png", alt: "BrightHearts"), 'http://sensoriumhealth.herokuapp.com', id: "logo" %>
+                                        
         </div>
     </div>
 </header>
