@@ -1,4 +1,9 @@
 Sensoriumhealth::Application.routes.draw do
+  get "users/new"
+
+  # for signup page
+  match '/signup',  to: 'users#new',  via: 'get'
+
     # route mapping for home page
     # this code maps the root URL / to /static_pages/home.
     # This means http://localhost:3000 is something other than defails rails page.
