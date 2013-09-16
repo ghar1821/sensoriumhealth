@@ -15,4 +15,8 @@ class User < ActiveRecord::Base
     validates :gender,   presence: true
     # Client decision city do not need to be filled in.
     #    validates :city,   presence: true
+
+    # Gets all the current password tests to pass.
+    # Need to be commented out so as to prevent some test from being red before going green
+    has_secure_password
 end
