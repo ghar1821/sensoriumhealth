@@ -19,4 +19,5 @@ class User < ActiveRecord::Base
     # Gets all the current password tests to pass.
     # Need to be commented out so as to prevent some test from being red before going green
     has_secure_password
+    validates :password, length: { minimum: 8 }
 end
