@@ -13,5 +13,6 @@ class User < ActiveRecord::Base
         uniqueness: { case_sensitive: false }
     validates :dob,   presence: true
     validates :gender,   presence: true
-    validates :city,   presence: true
+    # Client decision city do not need to be filled in.
+    #    validates :city,   presence: true
 end
