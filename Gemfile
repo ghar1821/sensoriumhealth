@@ -9,7 +9,7 @@ gem 'rails', '4.0.0'
 gem 'bootstrap-sass', '2.3.2.2'
 
 # Using bcrypt to irreversibly encrypt the password to form the password has.
-gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'bcrypt-ruby', '~> 3.0.1'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.16.0'
