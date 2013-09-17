@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
+# Ruby itself doesn't require a JS runtime, but a default new Rails application does
+#gem 'therubyracer' , require: "v8"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 

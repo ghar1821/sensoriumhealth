@@ -19,6 +19,7 @@
             <%= yield %>
             <!-- The footer: refer to _footer.html.erb file for details. This is partials only -->
             <%= render 'layouts/footer' %>
+            <%= debug(params) if Rails.env.development? %>
         </div>
     </body>
 </html>
