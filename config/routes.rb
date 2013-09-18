@@ -1,5 +1,8 @@
 Sensoriumhealth::Application.routes.draw do
-  get "users/new"
+    # This add a working /users/1 URL
+    # This endows the application with all the actions needed for a RESTful User resource, along with a large number of named routes for generating user URLs. Check out RESTful routes for all the routes available.
+    resources :users
+    # get "users/new"
 
   # for signup page
   match '/signup',  to: 'users#new',  via: 'get'

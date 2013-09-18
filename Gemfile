@@ -24,6 +24,14 @@ end
 group :test do
     gem "selenium-webdriver", "~> 2.35.1"
     gem "capybara", "~> 2.1.0"
+
+    # Active record can be used to create a user with User.create
+    # but user factories are a more convenient way to define 
+    # user objects and insert them in the database.
+    # Factory girl ruby gem generate factories
+    # All factory girl factories are placed in spec/factories.rb.
+    # It automatically gets loaded by Rspec.
+    gem 'factory_girl_rails', '~> 4.2.1'
 end
 
 # Use SCSS for stylesheets
