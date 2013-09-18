@@ -33,4 +33,8 @@ Sensoriumhealth::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # Speed up tests by lowering the bcrypt's cost function.
+  # This is only applicable to test environment.
+  ActiveModel::SecurePassword.min_cost = true
 end
