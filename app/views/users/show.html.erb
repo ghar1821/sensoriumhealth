@@ -2,7 +2,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <h1 align="left">Welcome <%= @user.username %>!</h1>
+        <h1>
+            <!-- Gravatar image.
+            Construct proper Gravatar image URL using user's email address
+            Define gravatar_for helper function to return a Gravatar image
+            for a given user
+            -->
+            <%= gravatar_for @user %>
+
+            <%= @user.username %>
+        </h1>
     </head>
 
     <body>
