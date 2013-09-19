@@ -120,6 +120,25 @@ input {
     height: auto !important; 
 }
 
+#error_explanation {
+    color: #f00;
+    ul {
+        list-style: none;
+        margin: 0 0 18px 0;
+    }
+}
+
+// Rails automatically wraps the fields with errors in divS
+// with CSS class field_wit_errors.
+.field_with_errors {
+    // @extend is Sass's @extend function
+    // to include the functionality of 2 Bootstrap classes:
+    // control-gropu and error.
+    // the error messages appear surrounded by red.
+    @extend .control-group;
+    @extend .error;
+}
+
 
 
 /* miscellaneous */
