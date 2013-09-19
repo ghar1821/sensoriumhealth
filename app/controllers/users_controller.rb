@@ -15,11 +15,30 @@ class UsersController < ApplicationController
     # Try and fail to save that user,
     # then render the signup page for possible resubmission.
     def create
-        @user = User.new(params[:user]) # Not final!
+
+        # The below statement translate to:
+        # @user = User.new(firstname: "bla", lastname: "bla",
+        # email: "lol@lol.com, the remaining attributes).
+        # @user = User.new(params[:user])
+        # Not secure! Need to use strong parameters
+        # Need to ask params hash to have a :user attribute,
+        # and permitting all confirmation attributes, i.e. if those
+        # attributes are not filled, error will be raised.
+        @user = User.new(user_params)
         if @user.save
             # successful save
         else
             render 'new'
         end
     end
+
+    private
+
+        def user_params
+            params.require(:user).permit(:firstname, :lastname,
+                                         :email, :dob, :gender,
+                                         :username, :password,
+                                         :password_confirmation)
+        end
+
 end
