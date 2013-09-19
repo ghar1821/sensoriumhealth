@@ -21,12 +21,14 @@
                     <%= f.label :email %>
                     <%= f.text_field :email %>
 
-                    <%= f.radio_button :gender, 'f' %>
-                    <%= label :gender_f, 'Female' %>
-                    <%= f.radio_button :gender, 'm' %>
-                    <%= label :gender_m, 'Male' %>
+                    <%= f.label :gender %>
+                    <%= f.radio_button :gender, "female" %> 
+                    <%= f.label :gender_female, "Female" %>
+                    <%= f.radio_button :gender, "male" %>
+                    <%= f.label :gender_male, "Male" %>
 
-                    <%= f.label :dob, "Year of birth" %>
+                    
+                    <%= f.label :dob, "Year of birth".html_safe %>
                     <%= f.number_field :dob %>
 
                     <%= f.label :city %>
