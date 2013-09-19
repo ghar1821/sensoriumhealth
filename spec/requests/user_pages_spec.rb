@@ -42,7 +42,7 @@ describe "UserPages" do
             before { click_button submit }
 
             it { should have_title('Sign up') }
-            it { shoud have_content('Error') }
+            it { should have_content('error') }
     
         end
 
