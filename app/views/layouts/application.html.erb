@@ -12,11 +12,21 @@
         <%= render 'layouts/shim' %>
         
     </head>
+
     <body>
         <!-- The header: refer to _header.html.erb file for details. This is partials -->
         <%= render 'layouts/header' %>
         <div class="container">
             <%= yield %>
+
+            <!-- Flash Erb using content_tag -->
+            <!-- Flash is a message that appears on the subsequent
+            page and then disappears upon visiting a second page
+            or on page reload
+            -->
+            <% flash.each do |key, value| %>
+                <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+            <% end %>
             <!-- The footer: refer to _footer.html.erb file for details. This is partials only -->
             <%= render 'layouts/footer' %>
 

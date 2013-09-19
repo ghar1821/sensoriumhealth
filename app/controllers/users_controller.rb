@@ -27,6 +27,9 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             # successful save
+            # content for the flash message
+            flash[:success] = "Welcome to sensoriumhealth!"
+            redirect_to @user
         else
             render 'new'
         end
