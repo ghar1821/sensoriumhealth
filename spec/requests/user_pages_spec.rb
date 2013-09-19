@@ -21,4 +21,43 @@ describe "UserPages" do
         it { should have_title('BrightHearts | Sign up') }
 
     end
+
+    describe "signup" do
+        before { visit signup_path }
+
+        let(:submit) { "Create my account" }
+
+        # Submitting blank form is not allowed.
+        describe "with invalid information" do
+            it "should not create a user" do
+                # Clicking the submit button results in invalid behavior,
+                # a.k.a not creating user.
+                # It's done by checking the count of users.
+                # the :count method is available for Active Record class.
+                # The line below calculates User.count before and after
+                # the execution of click_button submit.
+                expect { click_button submit }.not_to change(User, :count)
+            end
+        end
+
+        # Submitting form with all fields filled is allowed.
+        describe "with valid informaiton" do
+            before do
+                # Fill_in is simulating filling in valid information.
+                fill_in "Firstname",        with: "User"
+                fill_in "Lastname",         with: "One"
+                fill_in "Username",         with: "UserOne"
+                fill_in "Email",            with: "User.one@example.com"
+                fill_in "Gender",           with: "F"
+                fill_in "Dob",              with: 1990
+                fill_in "City",             with: "Sydney"
+                fill_in "Password",         with: "123456789"
+                fill_in "Password_confirmation",with: "123456789"
+            end
+
+            it "should create a user" do
+                expect { click_button submit }.to change(User, :count).by(1)
+            end
+        end
+    end
 end

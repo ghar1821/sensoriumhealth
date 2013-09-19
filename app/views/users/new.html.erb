@@ -4,7 +4,23 @@
     <body>
         <div class ="hero-unit">
             <h1>Sign up</h1>
-            <p>Find me in app/views/users/new.html.erb</p>
         </div>    
+        <div class = "row">
+            <div class="span6 offset3">
+                <!-- Form for is a helper method that takes in an Active
+                Record object and constructs a form using the object's
+                attributes. -->
+                <%= form_for(@user) do |f| %>
+
+                    <%= f.label :firstname %>
+                    <%= f.text_field :firstname %>
+
+                    <%= f.label :lastname %>
+                    <%= f.text_field :lastname %>
+
+                    <%= f.label :email %>
+                    <%= f.text_field :email %>
+            </div>
+        </div>
     </body>
 </html>
