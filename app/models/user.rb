@@ -20,4 +20,7 @@ class User < ActiveRecord::Base
     # Need to be commented out so as to prevent some test from being red before going green
     has_secure_password
     validates :password, length: { minimum: 8 }
+
+    # DATABASE RELATIONSHIP
+    has_many :sessions
 end
