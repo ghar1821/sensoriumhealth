@@ -38,10 +38,16 @@ describe "UserPages" do
                 # the execution of click_button submit.
                 expect { click_button submit }.not_to change(User, :count)
             end
+
+            before { click_button submit }
+
+            it { should have_title('Sign up') }
+            it { shoud have_content('Error') }
+    
         end
 
         # Submitting form with all fields filled is allowed.
-        describe "with valid informaiton" do
+        describe "with valid information" do
             before do
                 # Fill_in is simulating filling in valid information.
                 fill_in "Firstname",        with: "User"
@@ -59,5 +65,7 @@ describe "UserPages" do
                 expect { click_button submit }.to change(User, :count).by(1)
             end
         end
+
+        
     end
 end
