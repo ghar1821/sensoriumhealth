@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130918010830) do
+ActiveRecord::Schema.define(version: 20130919161523) do
 
   create_table "microposts", force: true do |t|
     t.string   "content"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20130918010830) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.integer  "dob"
-    t.string   "gender",          limit: 1
+    t.string   "gender",          limit: 6
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
