@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
         uniqueness: { case_sensitive: false } 
     validates :username,   presence: true,  length: { maximum: 30 },
         uniqueness: { case_sensitive: false }
-    validates :dob,   presence: true
+    validates :year_of_birth,   presence: true
     validates :gender,   presence: true
     # Client decision city do not need to be filled in.
     #    validates :city,   presence: true
@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
     has_secure_password
     validates :password, length: { minimum: 8 }
 
-    validates_acceptance_of :terms
+    validates_acceptance_of :terms_and_conditions
     # DATABASE RELATIONSHIP
     has_many :sessions
 end

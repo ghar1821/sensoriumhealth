@@ -8,7 +8,7 @@ describe User do
                               lastname: "Example lastname", 
                               email: "user@example.com", 
                               username: "Example username",
-                              dob: "01/01/2000",
+                              year_of_birth: "01/01/2000",
                               gender: "1",
                               city: "Examplecity",
                               password: "foobarrrr",
@@ -41,7 +41,7 @@ describe User do
     it { should respond_to(:lastname) }
     it { should respond_to(:email) }
     it { should respond_to(:username) }
-    it { should respond_to(:dob) }
+    it { should respond_to(:year_of_birth) }
     it { should respond_to(:gender) }
     it { should respond_to(:city) }
     it { should respond_to(:password_digest) }
@@ -84,8 +84,8 @@ describe User do
         it { should_not be_valid }
     end
 
-   describe "when dob is not present" do
-        before { @user.dob = " " }
+   describe "when year of birth is not present" do
+        before { @user.year_of_birth = " " }
         it { should_not be_valid }
     end
 
@@ -100,7 +100,7 @@ describe User do
                               lastname: "Example lastname", 
                               email: "user@example.com", 
                               username: "Example username",
-                              dob: "01/01/2000",
+                              year_of_birth: "01/01/2000",
                               gender: "1",
                               city: "Examplecity",
                               password: " ",

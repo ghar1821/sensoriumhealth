@@ -4,13 +4,13 @@ FactoryGirl.define do
         firstname   "foo"
         lastname    "baz"
         email       "foo.baz@baz.com"
-        dob         1990
+        year_of_birth         1990
         city        "Sydney"
         gender      "Male"
         username    "foobaz"
         password    "foobazbaz"
         password_confirmation   "foobazbaz"
-        terms "1"
+        terms_and_conditions "1"
 
     end
 end

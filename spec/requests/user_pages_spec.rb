@@ -50,16 +50,17 @@ describe "UserPages" do
         describe "with valid information" do
             before do
                 # Fill_in is simulating filling in valid information.
-                fill_in "Firstname",        with: "User"
-                fill_in "Lastname",         with: "One"
-                fill_in "Username",         with: "UserOne"
-                fill_in "Email",            with: "User.one@example.com"
-                choose "Female"
+                fill_in "Firstname",        with: "foo"
+                fill_in "Lastname",         with: "baz"
+                fill_in "Username",         with: "foobaz"
+                fill_in "Email",            with: "foo.baz@baz.com"
+                choose "Male"
                 fill_in "Year of birth",    with: 1990
                 fill_in "City",             with: "Sydney"
-                fill_in "Password",         with: "123456789"
-                fill_in "Confirmation",with: "123456789"
-                check ('Terms')
+                fill_in "Password",         with: "foobazbaz"
+                fill_in "Confirmation",with: "foobazbaz"
+                check ("Terms")
+
             end
 
             it "should create a user" do
