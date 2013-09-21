@@ -59,6 +59,7 @@ describe "UserPages" do
                 fill_in "City",             with: "Sydney"
                 fill_in "Password",         with: "123456789"
                 fill_in "Confirmation",with: "123456789"
+                check ('Terms')
             end
 
             it "should create a user" do

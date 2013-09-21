@@ -10,5 +10,7 @@ FactoryGirl.define do
         username    "foobaz"
         password    "foobazbaz"
         password_confirmation   "foobazbaz"
+        terms "1"
+
     end
 end

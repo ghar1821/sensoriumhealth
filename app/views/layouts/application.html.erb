@@ -25,7 +25,7 @@
             or on page reload
             -->
             <% flash.each do |key, value| %>
-                <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+                <div class="alert alert-<%= key %>"><%= value %></div>
             <% end %>
             <!-- The footer: refer to _footer.html.erb file for details. This is partials only -->
             <%= render 'layouts/footer' %>

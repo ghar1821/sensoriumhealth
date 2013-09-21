@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
     has_secure_password
     validates :password, length: { minimum: 8 }
 
+    validates_acceptance_of :terms
     # DATABASE RELATIONSHIP
     has_many :sessions
 end
