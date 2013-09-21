@@ -54,8 +54,8 @@ describe "UserPages" do
                 fill_in "Lastname",         with: "One"
                 fill_in "Username",         with: "UserOne"
                 fill_in "Email",            with: "User.one@example.com"
-                #fill_in "Gender",           with: "F"
-                fill_in "Year of birth",              with: 1990
+                choose "Female"
+                fill_in "Year of birth",    with: 1990
                 fill_in "City",             with: "Sydney"
                 fill_in "Password",         with: "123456789"
                 fill_in "Confirmation",with: "123456789"

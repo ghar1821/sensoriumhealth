@@ -6,7 +6,7 @@ FactoryGirl.define do
         email       "foo.baz@baz.com"
         dob         1990
         city        "Sydney"
-        gender      "M"
+        gender      "Male"
         username    "foobaz"
         password    "foobazbaz"
         password_confirmation   "foobazbaz"
