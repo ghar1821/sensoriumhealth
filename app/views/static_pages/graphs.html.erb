@@ -2,19 +2,20 @@
 <!doctype html>
 <html>
 	<head>
-		<script src="../../assets/javascripts/Chart.js"></script>
+		<%# <script src="../../assets/javascripts/Chart.js"></script>
 		<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
 		<style>
 			canvas{
 			}
-		</style>
+		</style> %>
 	</head>
 	<body>
 	<div class ="hero-unit">
 	<h1>Track your progress</h1>
+	<%#
 	</div>
-		<canvas id="canvas" height="400" width="800"></canvas>
-
+		<canvas id="canvas" height="400" width="800"></canvas> %>
+	<%#
 	<script>
 		// Define the data for the graph 
 		var lineChartData = {
@@ -55,6 +56,7 @@
 	// Draws the graph with the data defined by lineChartData into a HTML5 canvas element 
 	var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Line(lineChartData);
 	
-	</script>
+	</script> %>
+	<p> Hello World! - henry</p>
 	</body>
 </html>
