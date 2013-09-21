@@ -11,7 +11,14 @@
             
             
             <%= link_to "Sensorium Health", root_path, id: "logo" %> 
-                                        
+          <nav>
+            <ul class="nav pull-right">
+              <% if signed_in? %>
+                <li><%= link_to "Home", "#" %></li>
+              <% end %>
+          </nav>
+
+       
         </div>
     </div>
 </header>
