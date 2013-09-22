@@ -52,6 +52,11 @@ describe User do
     it { should respond_to(:password) }
     it { should respond_to(:password_confirmation) }
 
+    # Persistent sessions - sigin status that lasts even after browser close.
+    # Need to use permanent identifier for the signed-in user.
+    # Need to generate secure remember token for each user and store it as a permanent cookie.
+    it { should respond_to(:remember_token) }
+
     # requiring user object to respond to authenticate
     it { should respond_to(:authenticate) }
 

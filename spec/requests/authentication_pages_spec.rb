@@ -18,6 +18,12 @@ describe "Authentication" do
 
             it { should have_title('Sign in') }
             it { should have_selector('div.alert.alert-error', text: 'Invalid') }
+
+            # This is so that the error message do not get relayed to any other pages when user failed to sign in
+            describe "after visiting another page" do
+                before { click_link "Home" }
+                it { should_not have_selector('div.alert.alert-error') }
+            end
         end
 
         # Sigin successful
