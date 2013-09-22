@@ -25,7 +25,7 @@ Sensoriumhealth::Application.routes.draw do
     match '/contact',  to: 'static_pages#contact',    via: 'get'
     
     # graphs page
-    match '/graphs' to: 'static_pages#graphs', via: 'get'
+    # match '/graphs' to: 'static_pages#graphs', via: 'get'
 
     # The old way. Not nice URLs
         #get "static_pages/home"
