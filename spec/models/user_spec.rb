@@ -236,5 +236,12 @@ describe User do
         end
     end
 
+    # Test for a valid (nonblank) remember token for user that just register.
+    # User is redirected to the profile page once they register.
+    # The persistent cookie is set when they register (a.k.a the very first time they view the profile page)
+    describe "remember token" do
+        before { @user.save }
+        its(:remember_token) { should_not be_blank }
+    end
 
 end
