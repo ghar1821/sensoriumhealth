@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         # username are all stored in downcase.
         user = User.find_by(username: params[:session][:username].downcase)
         # if username exists and the given password matches
-        if user && user.authentication(params[:session][:password])
+        if user && user.authenticate(params[:session][:password])
             # Sign in and redirect to user's profile page
             sign_in user
             redirect_to user

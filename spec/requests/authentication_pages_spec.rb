@@ -21,7 +21,7 @@ describe "Authentication" do
 
             # This is so that the error message do not get relayed to any other pages when user failed to sign in
             describe "after visiting another page" do
-                before { click_link "Home" }
+                before { visit root_path  }
                 it { should_not have_selector('div.alert.alert-error') }
             end
         end
