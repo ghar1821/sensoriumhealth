@@ -29,4 +29,10 @@ module SessionsHelper
         # A user is signed in if there is a current user in the session, i.e. if current_user is non-nil
         !current_user.nil?
     end
+
+    # functionality for sign out
+    def sign_out
+        self.current_user = nil
+        cookies.delete(:remember_token)
+    end
 end
