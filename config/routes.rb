@@ -35,7 +35,10 @@ Sensoriumhealth::Application.routes.draw do
     # about_url -> 'http://localhost:3000/about'
     match '/help',  to: 'static_pages#help',    via: 'get'
     match '/about',  to: 'static_pages#about',    via: 'get'
-    match '/contact',  to: 'static_pages#contact',    via: 'get'  
+    match '/contact',  to: 'static_pages#contact',    via: 'get'
+    
+    # graphs page
+    # match '/graphs' to: 'static_pages#graphs', via: 'get'
 
   resources :microposts
 
