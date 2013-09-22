@@ -7,11 +7,31 @@
         <!-- container has special meaning to bootstrap. 
         yield method inserts the contents of eac page into the site layout -->
         <div class="container">
-            <!-- link_to create links. First argument is the link text, second is the URL -->
-            
-            
+            <!-- link_to create links. First argument is the link text, second is the URL --> 
             <%= link_to "Sensorium Health", root_path, id: "logo" %> 
-                                        
+
+            <nav>
+                <ul class = "nav pull-right">
+                    <!-- using the signed_in? method in session's helper
+                    To check if user is signed in -->
+                    <% if signed_in? %>
+                        <li><%= link_to "Users", '#' %></li>
+                        <li id="fat-menu" class="dropdown">
+                            <a href = "#" class="dropdown-toggle" data-toggle="dropdown">
+                                Account <b class="caret"></b>
+                            </a>
+                            <ul class = "dropdown-menu">
+                                <li><%= link_to "Profile", current_user %></li>
+                                <li><%= link_tp "Settings", '#' %></li>
+                                <li class="divider"></li>
+                                <li>
+                                    <%= link_to "Sign out", signout_path, method: "delete" %> 
+                                </li>
+                            </ul>
+                        </li> 
+                    <% end %>
+                </ul>
+            </nav>
         </div>
     </div>
 </header>

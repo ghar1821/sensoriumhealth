@@ -10,6 +10,8 @@ class SessionsController < ApplicationController
         # if username exists and the given password matches
         if user && user.authentication(params[:session][:password])
             # Sign in and redirect to user's profile page
+            sign_in user
+            redirect_to user
         else
             # Create error message and re-render the sigin
             # Need flash.now instead of just flash so the message do not propagate to other pages.
