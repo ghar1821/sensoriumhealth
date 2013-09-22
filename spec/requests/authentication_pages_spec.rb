@@ -9,7 +9,7 @@ describe "Authentication" do
         it { should have_title('Sign in') }
     end
 
-    desribe "signin" do
+    describe "signin" do
         before { visit signin_path }
    
         # Sigin failure.
@@ -24,7 +24,7 @@ describe "Authentication" do
         describe "with valid information" do
             let(:user) { FactoryGirl.create(:user) }
             before do
-                fill_in "Username",     with: user.username
+                fill_in "Username",     with: user.username.downcase
                 fill_in "Password",     with: user.password
                 click_button "Sign in"
             end
