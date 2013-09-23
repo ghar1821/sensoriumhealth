@@ -26,9 +26,6 @@ class UsersController < ApplicationController
         # attributes are not filled, error will be raised.
         @user = User.new(user_params)
         if @user.save
-            # sign user in straight away
-            # method is in session's helper method 
-            sign_in @user
             # successful save
             # content for the flash message
             flash[:success] = "Welcome to sensoriumhealth!"

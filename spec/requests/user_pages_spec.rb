@@ -67,16 +67,6 @@ describe "UserPages" do
                 expect { click_button submit }.to change(User, :count).by(1)
             end
 
-            # test to ensure user is signed in right after they register
-            describe "after saving the user" do
-                before { click_button submit }
-                let(:user) { User.find_by(username: 'foobaz') }
-
-                it { should have_link('Sign out') }
-                it { should have_title(user.username) }
-                it { should have_selector('div.alert.alert-success', text: 'Welcome') }
-            end
-
         end
         
     end

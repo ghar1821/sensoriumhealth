@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130922091710) do
+ActiveRecord::Schema.define(version: 20130921074538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,18 +23,18 @@ ActiveRecord::Schema.define(version: 20130922091710) do
     t.datetime "updated_at"
   end
 
-  create_table "relaxation_sessions", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
-
   create_table "session_heart_rates", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "session_id"
     t.float    "time"
     t.float    "heart_rate"
+  end
+
+  create_table "sessions", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", force: true do |t|
@@ -48,11 +48,9 @@ ActiveRecord::Schema.define(version: 20130922091710) do
     t.string   "password_digest"
     t.string   "gender",          limit: 6
     t.integer  "year_of_birth"
-    t.string   "remember_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end
