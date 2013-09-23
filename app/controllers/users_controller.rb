@@ -45,7 +45,7 @@ class UsersController < ApplicationController
                                          :email, :year_of_birth, :gender,
                                          :username, :password,
                                          :password_confirmation,
-                                         :terms)
+                                         :terms_and_conditions)
         end
 
 end
