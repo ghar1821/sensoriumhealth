@@ -1,4 +1,4 @@
-class Session < ActiveRecord::Base
+class RelaxationSession < ActiveRecord::Base
 
     # DATABASE RELATIONSHIPS
     belongs_to :user

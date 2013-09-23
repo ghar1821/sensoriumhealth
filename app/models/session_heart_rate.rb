@@ -1,3 +1,3 @@
 class SessionHeartRate < ActiveRecord::Base
-    belongs_to :session
+    belongs_to :relaxation_session
 end
