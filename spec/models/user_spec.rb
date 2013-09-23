@@ -52,6 +52,11 @@ describe User do
     it { should respond_to(:password) }
     it { should respond_to(:password_confirmation) }
 
+    # Persistent sessions - sigin status that lasts even after browser close.
+    # Need to use permanent identifier for the signed-in user.
+    # Need to generate secure remember token for each user and store it as a permanent cookie.
+    it { should respond_to(:remember_token) }
+
     # requiring user object to respond to authenticate
     it { should respond_to(:authenticate) }
 
@@ -231,5 +236,12 @@ describe User do
         end
     end
 
+    # Test for a valid (nonblank) remember token for user that just register.
+    # User is redirected to the profile page once they register.
+    # The persistent cookie is set when they register (a.k.a the very first time they view the profile page)
+    describe "remember token" do
+        before { @user.save }
+        its(:remember_token) { should_not be_blank }
+    end
 
 end
