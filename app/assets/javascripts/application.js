@@ -13,8 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require turbolinks
 //= require_tree .
+//= require turbolinks
 
 // For slideshow in homepage
 var slideshowInterval = 2000; // image will change every 2 seconds
