@@ -41,6 +41,9 @@ Sensoriumhealth::Application.routes.draw do
     # match '/graphs' to: 'static_pages#graphs', via: 'get'
 
   resources :microposts
+  
+  resources :relaxation_sessions
+    match '/home', to: 'relaxation_sessions#index', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
