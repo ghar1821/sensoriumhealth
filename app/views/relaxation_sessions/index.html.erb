@@ -1,8 +1,6 @@
 <% provide(:title, "Sign in") %>
 <!doctype html>
 <html>
-<h1>Relaxtion session</h1>
-
   <head>
     <script src="../../assets/javascripts/Chart.js"></script>
     <meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
@@ -14,12 +12,29 @@
 	
   <body>
 	<div class ="hero-unit">
-	<h1>Track your progress</h1>
+	<h1>Relaxation Sessions</h1>
 	</div>  
 	<br> 
+	<div class ="hero-unit">
+	<h1>Track your progress</h1>
+	<h4> Sessions </h4>
+	<table border="1" >
+	  <tr> 
+	    <th> Session Date </th>
+	  </tr>
+	<% @xAxis.each do |item| %>
+	  <tr>
+	    <td> <%= puts item %> </td>
+	  </tr>
+	  <% end %>
+	  <table>
+	</div>  
+	
+  
 	<div>
 	<h4> Heart Rate Variability </h2> 
 		<canvas id="line" height="400" width="800"></canvas>
+		
 	</div>
 
 	<script>
@@ -33,32 +48,15 @@
 			labels: [xAxis],
 			datasets: [
 			  {
-					fillColor : "rgba(151,187,205,0.5)",
-					strokeColor : "rgba(151,187,205,1)",
-					pointColor : "rgba(151,187,205,1)",
-					pointStrokeColor : "#fff",
-                        // Data to display 
-                        data : [
-                                yAxis] 
+			  	fillColor : "rgba(151,187,205,0.5)",
+				strokeColor : "rgba(151,187,205,1)",
+				pointColor : "rgba(151,187,205,1)",
+				pointStrokeColor : "#fff",
+                // Data to display 
+            	data : [yAxis] 
 		    }
 		  ]
 		}
-	
-	  var pieData = [
-				{
-					value: 30,
-					color:"#F38630"
-				},
-				{
-					value : 50,
-					color : "#E0E4CC"
-				},
-				{
-					value : 100,
-					color : "#69D2E7"
-				}
-			
-			];
 // Draws the graph with the data defined by lineChartData into a HTML5 canvas element 
 	new Chart(document.getElementById("line").getContext("2d")).Line(lineChartData);
 	</script>
