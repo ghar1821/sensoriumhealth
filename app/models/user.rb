@@ -18,6 +18,10 @@ class User < ActiveRecord::Base
         uniqueness: { case_sensitive: false }
     validates :year_of_birth,   presence: true
     validates :gender,   presence: true
+
+    # Terms and conditions need to be accepted before registering
+    validates :terms_and_conditions, presence: true
+
     # Client decision city do not need to be filled in.
     #    validates :city,   presence: true
 
