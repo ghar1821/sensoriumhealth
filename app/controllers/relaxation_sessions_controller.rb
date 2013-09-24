@@ -11,7 +11,7 @@ class RelaxationSessionsController < ApplicationController
         respond_to do |format|
             format.html # index.html.erb
             format.json { render :json => @xAxis}
-            format.json { render :json => @xAxis}
+            #format.json { render :json => @xAxis}
         end
     end
 end
