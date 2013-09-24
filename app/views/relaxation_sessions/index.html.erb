@@ -24,16 +24,11 @@
 
 	<script>
 		// Define the data for the graph 
-		var xAxis = <%= @xAxis %> ;
-		var yAxis = <%= @yAxis %> ;
-		//var xAxis = JSON.parse( "<%= @xAxis.to_json %>" );
-		//var yAxis = JSON.parse( "<%= @yAxis.to_json %>" );
-		document.write(<%= @data %>)
-		document.write(xAxis);
-		document.write(yAxis);
+		//document.write("magnitude " + <%= @magnitude %>)
+		//document.write("x " + <%= @xAxis %>);
 		var lineChartData = {
 		  // X axis labels 
-			labels: <%= @xAxis %>,
+			labels: ["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""],
 			datasets: [
 			  {
 			  	fillColor : "rgba(151,187,205,0.5)",
@@ -41,7 +36,7 @@
 				pointColor : "rgba(151,187,205,1)",
 				pointStrokeColor : "#fff",
                 // Data to display 
-            	data : <%= @yAxis %>
+            	data : <%= @magnitude %>
 		    }
 		  ]
 		}

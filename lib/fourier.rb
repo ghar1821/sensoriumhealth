@@ -46,6 +46,8 @@ module Fourier
     # Returns new vector of magnitudes of size N/2; second half of input vector
     # is imaginary and discared.
     def to_magnitude(input)
+        @sample_rate = 0.8
+        @window_size = 128
         magnitude = []
         for i in (0...input.length/2)
             magnitude << (input[i].magnitude)*i*@@sample_rate/@@window_size

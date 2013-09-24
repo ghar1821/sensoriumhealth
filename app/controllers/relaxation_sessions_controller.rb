@@ -1,21 +1,14 @@
 class RelaxationSessionsController < ApplicationController
     require 'fourier'
     require 'numbers'
+    require 'axisx'
    
    def index
-        # Create new data. Data is an array of IBIs. This will be replaced this with data
-        # fetched from the real DB.
+        # Create new data. Data is an array of IBIs. This will be replaced this with data fetched from the real DB.
         @data = ::Numbers.get_data
-        #s.Fourier.sample.new(@data)
-        
-        #@yAxis = Fourier.sample.new(@data).Fourier.get_magnitude
-        #@xAxis = []
-        #for i in (0..127) do
-        #    x << i*0.8/128
-        #end
-        
-        @xAxis = [1,2,3]
-        @yAxis = [60,65,63]
+        @fft = ::Fourier.fft(@data)
+        @magnitude = ::Fourier.to_magnitude(@fft)
+        @xAxis = ::Axisx.get_data
         
         respond_to do |format|
             format.html # index.html.erb
