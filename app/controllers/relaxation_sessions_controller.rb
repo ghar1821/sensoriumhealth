@@ -7,7 +7,7 @@ class RelaxationSessionsController < ApplicationController
         # Create new data. Data is an array of IBIs. This will be replaced this with data fetched from the real DB.
         @data = ::Numbers.get_data
         @fft = ::Fourier.fft(@data)
-        @magnitude = ::Fourier.to_magnitude(@fft)
+        @yAxis = ::Fourier.to_magnitude(@fft)
         @xAxis = ::Axisx.get_data
         
         respond_to do |format|
