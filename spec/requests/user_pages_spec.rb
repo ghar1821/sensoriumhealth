@@ -55,9 +55,9 @@ describe "UserPages" do
                 fill_in "Username",         with: "foobaz"
                 fill_in "Email",            with: "foo.baz@baz.com"
                 choose "Male"
-                fill_in "Year of birth",    with: 1990
+                select('1990', :from => 'Year of birth')
                 fill_in "City",             with: "Sydney"
-                fill_in "Password",         with: "foobazbaz"
+                fill_in "Password *",         with: "foobazbaz"
                 fill_in "Confirmation",with: "foobazbaz"
                 check ("Terms")
 

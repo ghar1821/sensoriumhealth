@@ -9,8 +9,9 @@ describe User do
                               email: "user@example.com", 
                               username: "Example username",
                               year_of_birth: "01/01/2000",
-                              gender: "1",
+                              gender: "Female",
                               city: "Examplecity",
+                              terms_and_conditions: "1",
                               password: "foobarrrr",
                               password_confirmation: "foobarrrr"
                              )
@@ -51,6 +52,9 @@ describe User do
     # Remember to add both fields to the initialisation hash for User.new at the top.
     it { should respond_to(:password) }
     it { should respond_to(:password_confirmation) }
+
+    # Make user agree to terms and conditions
+    it { should respond_to(:terms_and_conditions) }
 
     # Persistent sessions - sigin status that lasts even after browser close.
     # Need to use permanent identifier for the signed-in user.
@@ -106,10 +110,27 @@ describe User do
                               email: "user@example.com", 
                               username: "Example username",
                               year_of_birth: "01/01/2000",
-                              gender: "1",
+                              gender: "Female",
                               city: "Examplecity",
+                              terms_and_conditions: "1",
                               password: " ",
                               password_confirmation: " ")
+       end
+       it { should_not be_valid }
+   end
+
+   describe "when terms and conditions not accepted" do
+       before do
+           @user = User.new(firstname: "Example firstname", 
+                              lastname: "Example lastname", 
+                              email: "user@example.com", 
+                              username: "Example username",
+                              year_of_birth: "01/01/2000",
+                              gender: "1",
+                              city: "Examplecity",
+                              terms_and_conditions: "0",
+                              password: "123456789",
+                              password_confirmation: "123456789")
        end
        it { should_not be_valid }
    end

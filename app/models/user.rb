@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
     # downcasing the email and username attribute before being saved
     before_save { self.email = email.downcase } 
     before_save { self.username = username.downcase }
@@ -18,6 +19,7 @@ class User < ActiveRecord::Base
         uniqueness: { case_sensitive: false }
     validates :year_of_birth,   presence: true
     validates :gender,   presence: true
+    validates_acceptance_of :terms_and_conditions
     # Client decision city do not need to be filled in.
     #    validates :city,   presence: true
 
@@ -26,7 +28,7 @@ class User < ActiveRecord::Base
     has_secure_password
     validates :password, length: { minimum: 8 }
 
-    validates_acceptance_of :terms_and_conditions
+  
     # DATABASE RELATIONSHIP
     has_many :relaxation_sessions
 
