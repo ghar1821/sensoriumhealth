@@ -5,4 +5,5 @@ class ApplicationController < ActionController::Base
 
   # SessionsHelper is a module for authentication.
   include SessionsHelper
+  
 end
