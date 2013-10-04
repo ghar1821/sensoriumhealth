@@ -64,4 +64,5 @@ module Fourier
     def is_float?
         Float(self) != nil rescue false
     end
+    end
 end
