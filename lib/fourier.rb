@@ -49,9 +49,9 @@ module Fourier
         @sample_rate = 0.8
         @window_size = 128
         magnitude = []
-        for i in (0...input.length/2)
-            magnitude << (input[i].magnitude)*i*@@sample_rate/@@window_size
-        end
+        #for i in (0...input.length/2)
+        #   magnitude << (input[i].magnitude)*i*@@sample_rate/@@window_size
+        #end
         return magnitude
     end
 

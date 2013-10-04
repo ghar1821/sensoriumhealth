@@ -44,6 +44,9 @@ Sensoriumhealth::Application.routes.draw do
   
   resources :relaxation_sessions
     match '/home', to: 'relaxation_sessions#index', via: 'get'
+    
+  resources :session_heart_rates
+    match '/sessionheartrates', to: 'session_heart_rates#index', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

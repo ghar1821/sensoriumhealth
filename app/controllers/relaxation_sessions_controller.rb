@@ -14,4 +14,8 @@ class RelaxationSessionsController < ApplicationController
             #format.json { render :json => @xAxis}
         end
     end
+   
+   def show
+       
+   end
 end
