@@ -41,7 +41,7 @@ module Fourier
             # Calculate every element of FFT: e^(-2*pi*i*k/n).
             return Array.new(input.length) { |i| fft_even[i]+fft_odd[i]*Math::E**Complex(0, -2*Math::PI*i/input.length) }
         end
-
+        
         # Converts complex numbers (x+yi) to magnitude. Defined by: sqrt(x^2+y^2).
         # Returns new vector of magnitudes of size N/2; second half of input vector
         # is imaginary and discared.
@@ -55,6 +55,19 @@ module Fourier
             return magnitude
         end
 
+    # Converts complex numbers (x+yi) to magnitude. Defined by: sqrt(x^2+y^2).
+    # Returns new vector of magnitudes of size N/2; second half of input vector
+    # is imaginary and discared.
+    def to_magnitude(input)
+        @sample_rate = 0.8
+        @window_size = 128
+        magnitude = []
+        #for i in (0...input.length/2)
+        #   magnitude << (input[i].magnitude)*i*@@sample_rate/@@window_size
+        #end
+        return magnitude
+    end
+
         # Returns magnitude.
         def get_magnitude
             return to_magnitude(fft(@ibi))
@@ -64,5 +77,6 @@ module Fourier
         def is_float?
             Float(self) != nil rescue false
         end
+    end
     end
 end
