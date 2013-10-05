@@ -78,5 +78,4 @@ module Fourier
             Float(self) != nil rescue false
         end
     end
-    end
 end
