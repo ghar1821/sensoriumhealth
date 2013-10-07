@@ -99,7 +99,7 @@ config.action_mailer.default_url_options = { :host =>
   #require 'tlsmail'
   #Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
   #
-  config.action_mailer.default_url_options = { :host => 'shrouded-tundra-1450.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'sensoriumhealth.herokuapp.com' }
   ActionMailer::Base.smtp_settings = {
       :address        => "smtp.sendgrid.net",
       :port           => "25",
