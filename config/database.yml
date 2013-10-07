@@ -56,10 +56,10 @@ test: &test
 production:
   adapter: postgresql
   port: 5432
-  host: ec2-54-227-243-78.compute-1.amazonaws.com
-  database: de1p59souqsgsp
-  username: budohijcxhqhdl
-  password: ntitrIcsNQH8SnMuVm1ZgUzN5G
+  host: ec2-54-221-236-207.compute-1.amazonaws.com
+  database: d2filtir8bojsa
+  username: qqspovbkyanmon
+  password: BHfhn0V8Jq9UJp01TQ1e-MfMQC
 
 cucumber:
   <<: *test
