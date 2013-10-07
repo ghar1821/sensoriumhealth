@@ -1,52 +1,24 @@
-Sensoriumhealth::Application.routes.draw do
-    # This add a working /users/1 URL
-    # This endows the application with all the actions needed for a RESTful User resource, along with a large number of named routes for generating user URLs. Check out RESTful routes for all the routes available.
-    resources :users
-
-    # Resources method to define the standard RESTful routes.
-    # No need to show or edit sessions, thus just restrict to new, create, and destroy using :only option.
-    #
-    # RESTful routes provided by sessions rules:
-    # GET: page for a new session.
-    # POST: create a new session.
-    # DELETE: delete a session.
-    resources :sessions, only: [:new, :create, :destroy]
-    
-    # route mapping for home page
-    # this code maps the root URL / to /static_pages/home.
-    # This means http://localhost:3000 is something other than defails rails page.
-    # root_path -> '/'
-    # root_url -> 'http://localhost:3000/'
-    root 'static_pages#home'   
-    
-    # Custom named route for the signin and signout.
-    match '/signup', to: 'users#new', via: 'get'
-    match '/signin', to: 'sessions#new', via: 'get'
-    # via: delete indicates signout should be invoked using HTTP DELETE request.
-    match '/signout', to: 'sessions#destroy',   via: 'delete'
-
-
-
-    # Code below matches at GET requests for '/about' and routes it to the about
-    # action in the StaticPages controller.
-    # The code: match '/about' automatically creates named routes for use
-    # in the controllers and views:
-    # about_path -> '/about'
-    # about_url -> 'http://localhost:3000/about'
-    match '/help',  to: 'static_pages#help',    via: 'get'
-    match '/about',  to: 'static_pages#about',    via: 'get'
-    match '/contact',  to: 'static_pages#contact',    via: 'get'
-    
-    # graphs page
-    # match '/graphs' to: 'static_pages#graphs', via: 'get'
-
-  resources :microposts
+SensoriumhealthDevise::Application.routes.draw do
   
-  resources :relaxation_sessions
-    match '/home', to: 'relaxation_sessions#index', via: 'get'
-    
-  resources :session_heart_rates
-    match '/sessionheartrates', to: 'session_heart_rates#index', via: 'get'
+  
+  match '/', to: 'static_pages#home', via: 'get'
+  match '/help',    to: 'static_pages#help',    via: 'get'
+  match '/about',   to: 'static_pages#about',   via: 'get'
+  match '/contact', to: 'static_pages#contact', via: 'get'
+  match '/terms',   to: 'static_pages#terms',   via: 'get'
+  match '/privacy', to: 'static_pages#privacy', via: 'get'
+
+    # Where to redirect user upon login
+    #authenticated :user do
+    #root :to => 'user#show'
+    #end
+
+    root :to => 'static_pages#home'
+    devise_for :users
+    resources :user
+
+    resources :relaxation_sessions
+      match '/graph', to: 'relaxation_sessions#graph', via:'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -17,8 +17,18 @@ gem 'bcrypt-ruby', '~> 3.0.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.16.0'
 
+gem 'devise', '~> 3.1.0'
+
+gem 'figaro', '~> 0.7.0'
+
+gem "simple_form", "~> 3.0.0"
+
+gem "tlsmail", "~> 0.0.1"
+
+
 group :development, :test do
     gem 'rspec-rails', "~> 2.14.0"
+    gem 'factory_girl_rails', '~> 4.2.1'    
 end
 
 group :test do
@@ -31,7 +41,17 @@ group :test do
     # Factory girl ruby gem generate factories
     # All factory girl factories are placed in spec/factories.rb.
     # It automatically gets loaded by Rspec.
-    gem 'factory_girl_rails', '~> 4.2.1'
+
+    gem 'database_cleaner', '~> 1.1.1'
+    gem 'email_spec', '~> 1.5.0'
+    gem 'cucumber-rails', '~> 1.4.0',:require => false
+    gem 'launchy', '~> 2.3.0'
+end
+
+group :development do
+    gem 'quiet_assets', '~> 1.0.2'
+    gem 'better_errors', '~> 1.0.1'
+    gem 'binding_of_caller', '~> 0.7.2'
 end
 
 # Use SCSS for stylesheets

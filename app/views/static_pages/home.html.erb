@@ -1,45 +1,10 @@
-<% provide(:title, 'Home') %>
+
 <!DOCTYPE html>
 <html>
-    <body> 
-        <!-- The hero-unit CSS class has special meaning to Bootstrap, as do the btn, btn-large, btn-primary
-        classes in the signup button below -->
-        
-            <h1>BrightHearts project</h1>
-            <br />
-            <br />
-            <p style="float: left;">
-            <%= image_tag "1.jpg", name: "slideshow" ,:class => "style_brighthearts1_image", alt: "BrighHearts", width: 400, height: 300, :style => "padding-right: 10px" %>
-            </p>
-
-            <p style="font-size:18px"><br>The aim of our BrightHearts project is to design, build and then test whether 
-            a biofeedback assisted relaxation training 'app' can offer benefits 
-            above and beyond current iPad-based 'distraction' methods 
-            for children who undergo painful recurrent medical procedures.
-            </p>
-
-            <!-- In preparation for registering user to the site, 
-            the first link_to creates a stub link of the form 
-            <a href="#" class="btn btn-large btn-primary">Sign up now!</a> 
-            -->
-            <%= link_to "Sign up", signup_path, class: "btn btn-large btn-primary" %>
-            <%= link_to "Login", signin_path, class: "btn btn-large btn-primary" %>
-            <br>
-            <br>
-            <br>
-            <br />
-        
-            <!-- Line below is translated into:
-            <img alt="BrightHearts" src="/assests/SponsorsLogo.png" />
-            Link_to shows off the image_tag helper which takes arguments the path to an image and an optional
-            options hash, setting the alt attribute of the image tag using symbols.
-            Alt attribute will display the text if there is no image.
-            This is required by HTML standard.
-            Rails does this automatically (the text is the image filename) if alt tag is not included.
-            -->
-            
-            <%= image_tag "SponsorsLogo.png", alt: "BrightHearts sponsor logo", :align=> "middle" %>
-   </body>
-
+	<body>
+		
+		<h1>BrightHearts</h1>
+		<h2>Welcome to BrightHearts project!</h2>
+		    
+	</body>
 </html>
-

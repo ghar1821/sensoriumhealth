@@ -1,4 +1,4 @@
-Sensoriumhealth::Application.configure do
+SensoriumhealthDevise::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -27,7 +27,7 @@ Sensoriumhealth::Application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs.
   config.assets.digest = true
@@ -40,7 +40,7 @@ Sensoriumhealth::Application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true
+  # config.force_ssl = true
 
   # Set to :debug to see everything in the log.
   config.log_level = :info
@@ -59,7 +59,7 @@ Sensoriumhealth::Application.configure do
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-  # config.assets.precompile += %w( search.js )
+  config.assets.precompile += %w( search.js )
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
@@ -77,4 +77,35 @@ Sensoriumhealth::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+=begin
+  require 'tlsmail'
+  Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+config.action_mailer.default_url_options = { :host => 
+'shrouded-tundra-1450.herokuapp.com'}
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.raise_delivery_errors = true
+  ActionMailer::Base.smtp_settings = {
+        :address        => 'smtp.gmail.com',
+        :port           => 587,
+        :tls            => true,
+        :domain         => 'ghar1821@gmail.com',
+        :user_name      => 'ghar1821',
+        :password       => '11Her6utt',
+        :authentication => :plain,
+        :enable_starttls_auto => true
+    }
+=end
+  #require 'tlsmail'
+  #Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
+  #
+  config.action_mailer.default_url_options = { :host => 'shrouded-tundra-1450.herokuapp.com' }
+  ActionMailer::Base.smtp_settings = {
+      :address        => "smtp.sendgrid.net",
+      :port           => "25",
+      :authentication => :plain,
+      :user_name      => ENV['SENDGRID_USERNAME'],
+      :password       => ENV['SENDGRID_PASSWORD'],
+      :domain         => ENV['SENDGRID_DOMAIN']
+  }
 end

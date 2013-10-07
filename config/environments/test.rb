@@ -1,4 +1,4 @@
-Sensoriumhealth::Application.configure do
+SensoriumhealthDevise::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # The test environment is used exclusively to run your application's
@@ -34,7 +34,6 @@ Sensoriumhealth::Application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
-  # Speed up tests by lowering the bcrypt's cost function.
-  # This is only applicable to test environment.
-  ActiveModel::SecurePassword.min_cost = true
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :test
 end

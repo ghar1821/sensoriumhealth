@@ -17,7 +17,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: sensoriumhealth_development
+  database: sensoriumhealth_devise_development
   host: localhost
   pool: 5
   username: sensoriumhealth
@@ -44,10 +44,10 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
+test: &test
   adapter: postgresql
   encoding: unicode
-  database: sensoriumhealth_test
+  database: sensoriumhealth_devise_test
   host: localhost
   pool: 5
   username: sensoriumhealth
@@ -56,7 +56,10 @@ test:
 production:
   adapter: postgresql
   port: 5432
-  host: ec2-54-221-236-207.compute-1.amazonaws.com
-  database: d3k7r7csksbkss
-  username: gbnoxmfhpchoew
-  password: SBYC9MgSt649EqgCjdcG-c1XeG
+  host: ec2-54-227-243-78.compute-1.amazonaws.com
+  database: de1p59souqsgsp
+  username: budohijcxhqhdl
+  password: ntitrIcsNQH8SnMuVm1ZgUzN5G
+
+cucumber:
+  <<: *test

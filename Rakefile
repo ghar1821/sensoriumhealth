@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Sensoriumhealth::Application.load_tasks
+SensoriumhealthDevise::Application.load_tasks

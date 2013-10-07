@@ -1,39 +1,39 @@
-<!-- This file determine the overall layout of the website.
-< Including the header and footer>
-< The content is dynamic based on each page>
--->
 <!DOCTYPE html>
 <html>
-    <head>
-        <title><%= full_title(yield(:title)) %></title>
-        <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-        <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-        <%= csrf_meta_tags %>
-        <%= render 'layouts/shim' %>
-        
-    </head>
-
-    <body>
-        <!-- The header: refer to _header.html.erb file for details. This is partials -->
-        <%= render 'layouts/header' %>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title><%= full_title(yield(:title)) %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails Bootstrap" %>">
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top">
+      <nav class="navbar-inner">
         <div class="container">
-            <%= yield %>
-
-            <!-- Flash Erb using content_tag -->
-            <!-- Flash is a message that appears on the subsequent
-            page and then disappears upon visiting a second page
-            or on page reload
-            -->
-            <% flash.each do |key, value| %>
-                <div class="alert alert-<%= key %>"><%= value %></div>
-            <% end %>
-            <!-- The footer: refer to _footer.html.erb file for details. This is partials only -->
-            <%= render 'layouts/footer' %>
-
-            <!-- YAML representation of params (a hash) that identifies the controller and action for the page.
-            if Rails.env.development make sure the debug information is not visible to users of a deployed application, and restricting the debug information to the development environment.
-            Development environemnt is one of three environments defined by default in rails: Rails.env.test and Rails.env.production - once deployed to heroku-->
-            <%= debug(params) if Rails.env.development? %>
+          <%= render 'layouts/navigation' %>
         </div>
-    </body>
+      </nav>
+    </header>
+    <main role="main">
+      <div class="container">
+        <div class="content">
+           <div class="row">
+            <div class="span12">
+              <%= render 'layouts/messages' %>
+              <%= yield %>
+            </div>
+          </div>
+          <footer class="navbar navbar-fixed-bottom">
+          	<nav class="navbar-inner">
+          		<div class="container">
+					<%= render 'layouts/footer' %>
+				</div>
+          </footer>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>

@@ -1,0 +1,5 @@
+<p>Welcome to Brighthearts!</p>
+
+<p>Please confirm your account email through the link below within 3 days of the confirmation email sent:</p>
+
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @token) %></p>

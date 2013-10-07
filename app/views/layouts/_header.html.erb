@@ -1,41 +1,21 @@
-<!-- Applicable to HTML 5:>
-< Header tags indicates elements that should go at the top of the page.>
-< Each header tag has 3 css classes - navbar, navbar-fixed-top, navbar-inverse >
--->
-<Header class="navbar navbar-fixed-top navbar-inverse">
-    <div class="navbar-inner">
-        <!-- container has special meaning to bootstrap. 
-        yield method inserts the contents of eac page into the site layout -->
-        <div class="container">
-            <!-- link_to create links. First argument is the link text, second is the URL --> 
-            <%= link_to "Sensorium Health", root_path, id: "logo" %> 
-
-            <nav>
-                <ul class = "nav pull-right">
-                    <!-- using the signed_in? method in session's helper
-                    To check if user is signed in -->
-                    <% if signed_in? %>
-                        <li><%= link_to "Home", home_path %></li>
-                        <li><%= link_to "Users", "#" %></li>
-                        <li id="fat-menu" class="dropdown">
-                            <a href = "#" class="dropdown-toggle" data-toggle="dropdown">
-                                Account <b class="caret"></b>
-                            </a>
-                            <ul class = "dropdown-menu">
-                                <li><%= link_to "Profile", current_user %></li>
-                                <li><%= link_to "Settings", '#' %></li>
-                                <li class="divider"></li>
-                                <li>
-                                    <%= link_to "Sign out", signout_path, method: "delete" %> 
-                                </li>
-                            </ul>
-                        </li> 
-                    <% else %>
-                        <li><%= link_to "Sign in", signin_path %></li>
-                    <% end %>
-                </ul>
-            </nav>
-          
-        </div>
-    </div>
-</header>
+<%= link_to "Home", root_path, :class => 'brand' %>
+<ul class="nav">
+  <% if user_signed_in? %>
+    <li>
+    <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
+    </li>
+  <% else %>
+    <li>
+    <%= link_to('Login', new_user_session_path)  %>
+    </li>
+  <% end %>
+  <% if user_signed_in? %>
+    <li>
+    <%= link_to('Edit account', edit_user_registration_path) %>
+    </li>
+  <% else %>
+    <li>
+    <%= link_to('Sign up', new_user_registration_path)  %>
+    </li>
+  <% end %>
+</ul>

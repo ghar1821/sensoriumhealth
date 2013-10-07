@@ -6,8 +6,17 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-module Sensoriumhealth
+module SensoriumhealthDevise
   class Application < Rails::Application
+    config.generators do |g|
+        g.test_framework :rspec, fixture: true
+        g.fixture_replacement :factory_girl, dir: 'spec/factories'
+        g.view_specs false
+        g.helper_specs false
+        g.stylesheets = false
+        g.javascripts = false
+        g.helper = false
+    end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -19,7 +28,11 @@ module Sensoriumhealth
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
-    config.assets.enabled = true
+
+    # Prevent logging of passwords
+    config.filter_parameters += [:password, :password_confirmation]
+
+    # Heroku requires this to be false
+    config.assets.initialize_on_precompile=false
   end
 end
