@@ -57,6 +57,6 @@ production:
   adapter: postgresql
   port: 5432
   host: ec2-54-221-236-207.compute-1.amazonaws.com
-  database: d3k7r7csksbkss
-  username: gbnoxmfhpchoew
-  password: SBYC9MgSt649EqgCjdcG-c1XeG
+  database: d2filtir8bojsa
+  username: qqspovbkyanmon
+  password: BHfhn0V8Jq9UJp01TQ1e-MfMQC

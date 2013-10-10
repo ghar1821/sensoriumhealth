@@ -1,6 +1,31 @@
 <html>
 <% provide(:title, "Sign in") %>
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    new Highcharts.Chart({
+      chart: {
+        renderTo: "session_graph"
+      }, 
+      title: {
+        text: "Lomb Frequency Analysis or something rather" 
+      }
+      xAxis: {
+        type: "datetime"
+      }, 
+      yAxis: {
+        title: {
+          text: "Heart Rate"
+        }
+      }, 
+      series [{
+        data: [1,2,5,7,9]
+      }]
+    });
+  });
+</script>
+
 <h1>Session Heart Rates</h1>
+<div id = "session_graph" style"width:400px; height:300px;"> </div>
 
   <div>
   <table border="1" >
