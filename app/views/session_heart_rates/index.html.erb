@@ -1,5 +1,7 @@
 <html>
-<% provide(:title, "Sign in") %>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="../../../public/javascripts/highcharts.js"></script>
+<script src="../../../public/javascripts/modules/exporting.js"></script>
 <script type="text/javascript" charset="utf-8">
   $(function() {
     new Highcharts.Chart({
@@ -8,24 +10,38 @@
       }, 
       title: {
         text: "Lomb Frequency Analysis or something rather" 
-      }
+      },
       xAxis: {
-        type: "datetime"
-      }, 
+        title: {
+          text: "time"
+        }
+      },
       yAxis: {
         title: {
-          text: "Heart Rate"
+          text: "Percentage of resonance"
         }
-      }, 
-      series [{
-        data: [1,2,5,7,9]
+      },
+      tooltip: {
+    	enabled: true,
+        formatter: function() {
+          return '<b>Session date: ' + this.x + '</b><br>Score: ' + this.y;
+        }
+      },
+      plotOptions: {
+    	line: {
+          enableMouseTracking: true
+        }
+      },
+      series: [{
+     	name: "Resonance Score",
+     	data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
       }]
     });
   });
 </script>
 
 <h1>Session Heart Rates</h1>
-<div id = "session_graph" style"width:400px; height:300px;"> </div>
+<div id ="session_graph" style="width:900px; height:300px;"> </div>
 
   <div>
   <table border="1" >
