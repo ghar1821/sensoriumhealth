@@ -13,7 +13,7 @@
       },
       xAxis: {
         title: {
-          text: "time"
+          text: "Session Number"
         }
       },
       yAxis: {
@@ -34,7 +34,7 @@
       },
       series: [{
      	name: "Resonance Score",
-     	data: <%= @analysis %>
+     	data: <%= @mock_data %>
       }]
     });
   });
@@ -42,23 +42,42 @@
 
 <h1>Session Heart Rates</h1>
 <div id ="session_graph" style="width:900px; height:300px;"> </div>
-
+<p> <%= @yAxis %>
+<%= @length %>
   <div>
   <table border="1" >
   <tr> 
 	    <th> Session ID </th>
-	    <th> Created at </th>
-	    <th> Time </th>
-	    <th> Heart Rate </th>
+	    <th> Data </th>
 	  </tr>
-	  <% @session_heart_rate.each do |session_heart_rate| %> 
+	  <% @mock_data.each do |mock_data| %> 
 	  <tr>
-	    <td> <%= session_heart_rate.id %> </td>
-		<td> <%= session_heart_rate.created_at %> </td>
-		<td> <%= session_heart_rate.time %> </td>
-		<td> <%= session_heart_rate.heart_rate %> </td>
+	    <td> ID </td>
+		<td> <%= mock_data %> </td>
 	  </tr>
 	  <% end %>
   </table>
   </div>
+  <p>
+  <div>
+  <table border="1" >
+  <tr> 
+	    <th> Min heart rate </th>
+	    <th> Max heart rate </th>
+	    <th> Most common frequency </th>
+	    <th> Total time in resonance </th>
+	    <th> Power </th>
+	    <th> Time </th>
+	  </tr>
+	  <tr>
+	    <td> <%= @min_heart_rate %> bpm </td>
+		<td> <%= @max_heart_rate %> </td>
+		<td> <%= @most_common_freq %> </td>
+		<td> <%= @total_time_resonance %> </td>
+		<td> <%= @power %> </td>
+		<td> <%= @time %> </td>
+	  </tr>
+  </table>
+  </div> 
+  
 </html>
