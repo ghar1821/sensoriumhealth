@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20131005021009) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "ibis", force: true do |t|
     t.integer  "beat_count"
     t.time     "beat_time"

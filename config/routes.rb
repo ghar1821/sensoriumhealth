@@ -18,7 +18,7 @@ SensoriumhealthDevise::Application.routes.draw do
     resources :user
 
     resources :relaxation_sessions
-      match '/graph', to: 'relaxation_sessions#graph', via:'get'
+      match '/graph', to: 'ibi#index', via:'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

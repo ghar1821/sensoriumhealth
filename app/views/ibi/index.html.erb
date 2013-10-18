@@ -1,0 +1,69 @@
+<html>
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    new Highcharts.Chart({
+      chart: {
+        renderTo: "session_graph"
+      }, 
+      title: {
+        text: "Percentage Resonance" 
+      },
+      xAxis: {
+      	categories: <%= @time %>,
+      	minTickInterval: 10,
+      	labels: {
+      		step: 2,
+      		staggerLines: 1
+      	},
+        title: {
+          text: "Time"
+        }
+      },
+      yAxis: {
+        title: {
+          text: "Percentage low frequency power"
+        }
+      },
+      tooltip: {
+    	enabled: true,
+        formatter: function() {
+          return '<b>Session Time: ' + this.x + '</b><br>Score: ' + this.y;
+        }
+      },
+      plotOptions: {
+    	line: {
+          enableMouseTracking: true,
+          showInLegend: false
+        }
+      },
+      credits: {
+      	enabled: false
+      },
+      series: [{
+     	data: <%= @power %>
+      }]
+    });
+  });
+</script>
+
+<h1>Session Heart Rates</h1>
+<div id ="session_graph" style="width:1000px; height:450px;"> </div>
+<br>
+<h4> Session Statistics </h4> 
+<div>
+  <table border="1" >
+  	<tr> 
+	  <th> Min heart rate </th>
+	  <th> Max heart rate </th>
+	  <th> Most common frequency </th>
+	  <th> Total time in resonance </th>
+	</tr>
+	<tr>
+	  <td> <%= @min_heart_rate %> bpm </td>
+	  <td> <%= @max_heart_rate %> bpm </td>
+	  <td> <%= @most_common_freq %> Hz </td>
+	  <td> <%= @total_time_resonance %> s </td>
+	</tr>
+  </table>
+</div>
+</html>
