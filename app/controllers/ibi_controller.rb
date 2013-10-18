@@ -5,6 +5,7 @@ require "lomb"
 class IbiController < ApplicationController
 	def index
         # Display data from the relaxation_session table
+        # Currently, not linked to the database
         @mock_data = Numbers.get_data
         
         # Iinitialise the "Analysis" class to perform all necessary analytics/ calculations.

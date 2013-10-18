@@ -1,4 +1,9 @@
 <html>
+ <!-- Uses HighCharts api to graph lomb method 
+ 		More documentation can be found http://www.highcharts.com/ 
+ 	 	All HighCharts code is found in this view, pulls data from the controller 
+ 	 	using calls to the controller (<%= @variable %>). The lomb method is calculated 
+ 	 	in the controller -->
 <script type="text/javascript" charset="utf-8">
   $(function() {
     new Highcharts.Chart({
@@ -49,6 +54,7 @@
 <h1>Session Heart Rates</h1>
 <div id ="session_graph" style="width:1000px; height:450px;"> </div>
 <br>
+<!-- Table displaying user statistics -->
 <h4> Session Statistics </h4> 
 <div>
   <table border="1" >
