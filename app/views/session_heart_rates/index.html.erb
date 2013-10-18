@@ -1,7 +1,4 @@
 <html>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script src="../../../public/javascripts/highcharts.js"></script>
-<script src="../../../public/javascripts/modules/exporting.js"></script>
 <script type="text/javascript" charset="utf-8">
   $(function() {
     new Highcharts.Chart({
@@ -51,9 +48,8 @@
 
 <h1>Session Heart Rates</h1>
 <div id ="session_graph" style="width:1000px; height:500px;"> </div>
-<p> <%= @yAxis %>
-<%= @length %>
   <p>
+ <h4> Session Statistics </h4> 
   <div>
   <table border="1" >
   <tr> 
@@ -61,34 +57,13 @@
 	    <th> Max heart rate </th>
 	    <th> Most common frequency </th>
 	    <th> Total time in resonance </th>
-	    <th> Power </th>
-	    <th> Time </th>
 	  </tr>
 	  <tr>
 	    <td> <%= @min_heart_rate %> bpm </td>
-		<td> <%= @max_heart_rate %> </td>
-		<td> <%= @most_common_freq %> </td>
-		<td> <%= @total_time_resonance %> </td>
-		<td> <%= @power %> </td>
-		<td> <%= @time %> </td>
+		<td> <%= @max_heart_rate %> bpm </td>
+		<td> <%= @most_common_freq %> Hz </td>
+		<td> <%= @total_time_resonance %> s</td>
 	  </tr>
   </table>
   </div>
-  <p> 
-  <div>
-  <table border="1" >
-  <tr> 
-	    <th> Session ID </th>
-	    <th> Data </th>
-	  </tr>
-	  <% @mock_data.each do |mock_data| %> 
-	  <tr>
-	    <td> ID </td>
-		<td> <%= mock_data %> </td>
-	  </tr>
-	  <% end %>
-  </table>
-  </div>
-  <p>
-  
 </html>
