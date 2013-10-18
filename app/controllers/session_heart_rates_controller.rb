@@ -29,11 +29,12 @@ class SessionHeartRatesController < ApplicationController
 		# Time is the time of each window; time is defined as the time of
 		# the last beat in that window. Time is in seconds.
 		@yAxis = []
-		@length = Analysis.get_power.to_s
-		for i in (0...Analysis.get_power.length)
-			@power = Analysis.get_power[i].to_s
-			@time = Analysis.get_time[i].to_s
-			@yAxis[i] = @power + @time
-		end
+		@length = Analysis.get_power.length
+		@power = Analysis.get_power
+		@time = Analysis.get_time
+		#for i in (0...Analysis.get_power.length)
+		#	@power = Analysis.get_power[i].to_s
+		#	@time = Analysis.get_time[i].to_s
+		#end
     end
 end

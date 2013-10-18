@@ -9,55 +9,50 @@
         renderTo: "session_graph"
       }, 
       title: {
-        text: "Lomb Frequency Analysis or something rather" 
+        text: "Percentage Resonance" 
       },
       xAxis: {
+      	categories: <%= @time %>,
+      	minTickInterval: 10,
+      	labels: {
+      		step: 2,
+      		staggerLines: 1
+      	},
         title: {
-          text: "Session Number"
+          text: "Time"
         }
       },
       yAxis: {
         title: {
-          text: "Percentage of resonance"
+          text: "Percentage low frequency power"
         }
       },
       tooltip: {
     	enabled: true,
         formatter: function() {
-          return '<b>Session date: ' + this.x + '</b><br>Score: ' + this.y;
+          return '<b>Session Time: ' + this.x + '</b><br>Score: ' + this.y;
         }
       },
       plotOptions: {
     	line: {
-          enableMouseTracking: true
+          enableMouseTracking: true,
+          showInLegend: false
         }
       },
+      credits: {
+      	enabled: false
+      },
       series: [{
-     	name: "Resonance Score",
-     	data: <%= @mock_data %>
+     	data: <%= @power %>
       }]
     });
   });
 </script>
 
 <h1>Session Heart Rates</h1>
-<div id ="session_graph" style="width:900px; height:300px;"> </div>
+<div id ="session_graph" style="width:1000px; height:500px;"> </div>
 <p> <%= @yAxis %>
 <%= @length %>
-  <div>
-  <table border="1" >
-  <tr> 
-	    <th> Session ID </th>
-	    <th> Data </th>
-	  </tr>
-	  <% @mock_data.each do |mock_data| %> 
-	  <tr>
-	    <td> ID </td>
-		<td> <%= mock_data %> </td>
-	  </tr>
-	  <% end %>
-  </table>
-  </div>
   <p>
   <div>
   <table border="1" >
@@ -78,6 +73,22 @@
 		<td> <%= @time %> </td>
 	  </tr>
   </table>
-  </div> 
+  </div>
+  <p> 
+  <div>
+  <table border="1" >
+  <tr> 
+	    <th> Session ID </th>
+	    <th> Data </th>
+	  </tr>
+	  <% @mock_data.each do |mock_data| %> 
+	  <tr>
+	    <td> ID </td>
+		<td> <%= mock_data %> </td>
+	  </tr>
+	  <% end %>
+  </table>
+  </div>
+  <p>
   
 </html>
