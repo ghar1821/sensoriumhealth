@@ -5,6 +5,7 @@ require "lomb"
 class IbiController < ApplicationController
 	def index
         # Display data from the relaxation_session table
+        # Number of records needs to be >128
         # Currently, not linked to the database
         @mock_data = Numbers.get_data
         
@@ -13,13 +14,13 @@ class IbiController < ApplicationController
         
         # All the information is ready at this stage.
         # Minimum heart rate in session.
-        @min_heart_rate = Analysis.get_min_hr.to_s
+        @min_heart_rate = Analysis.get_min_hr.round(2)
         # Maximum heart rate in session.
-        @max_heart_rate = Analysis.get_max_hr.to_s
+        @max_heart_rate = Analysis.get_max_hr.round(2)
         # Most common frequency in the session.
-        @most_common_freq = Analysis.get_mcf.to_s
+        @most_common_freq = Analysis.get_mcf.round(4)
         # Total time in resonance.
-        @total_time_resonance = Analysis.get_ttr.to_s
+        @total_time_resonance = Analysis.get_ttr.round(2)
         
         # LF = low frequency [0.04, 0.15)Hz.
 		# A list of: percentage of LF power in each window/ time of each window.
@@ -28,8 +29,6 @@ class IbiController < ApplicationController
 		# This number should be [0, 1].
 		# Time is the time of each window; time is defined as the time of
 		# the last beat in that window. Time is in seconds.
-		@yAxis = []
-		@length = Analysis.get_power.length
 		@power = Analysis.get_power
 		@time = Analysis.get_time
     end
