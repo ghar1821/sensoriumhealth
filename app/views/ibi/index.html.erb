@@ -61,12 +61,14 @@
   	<tr> 
 	  <th> Min heart rate </th>
 	  <th> Max heart rate </th>
+	  <th> Range </th>
 	  <th> Most common frequency </th>
 	  <th> Total time in resonance </th>
 	</tr>
 	<tr>
 	  <td> <%= @min_heart_rate %> bpm </td>
 	  <td> <%= @max_heart_rate %> bpm </td>
+	  <td> <%= @max_heart_rate - @min_heart_rate %> bpm </td>
 	  <td> <%= @most_common_freq %> Hz </td>
 	  <td> <%= @total_time_resonance %> s </td>
 	</tr>
