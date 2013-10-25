@@ -9,6 +9,10 @@ class IbiController < ApplicationController
         # Currently, not linked to the database
         @mock_data = Numbers.get_data
         
+        # Get data from data base (uncomment)
+        # @data = Ibi.beatvalue
+        # @analysis = Analysis.initialize(@data)
+        
         # Iinitialise the "Analysis" class to perform all necessary analytics/ calculations.
         @analysis = Analysis.initialize(@mock_data)
         
