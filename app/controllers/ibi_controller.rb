@@ -41,4 +41,8 @@ class IbiController < ApplicationController
 		@power = Analysis.get_power
 		@time = Analysis.get_time
     end
+    
+    def data_visualisations
+    	
+    end 
 end
