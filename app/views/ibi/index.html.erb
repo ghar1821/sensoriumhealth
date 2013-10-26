@@ -55,16 +55,21 @@
       plotOptions: {
     	line: {
           enableMouseTracking: true,
-          showInLegend: false
+          showInLegend: false,
+          lineWidth: 8
         }
       },
       // Highcharts credits
       credits: {
       	enabled: false
       },
+      // Defines the data for the yAxis 
+      // Threshold is the point where the line changes colour
       series: [{
-     	data: <%= @power %>
-      }]
+     	data: <%= @power %>,
+     	threshold: <%= @resonance_baseline %>,
+     	negativeColor: '#FF0000'
+	  }],
     });
   });
 </script>
