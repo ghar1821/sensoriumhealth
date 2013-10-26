@@ -16,6 +16,10 @@
       xAxis: {
       	categories: <%= @time %>,
       	minTickInterval: 10,
+      	//min: <%= @yAxis_start %>,
+        //startOnTick: false,
+      	// Step specifies the how many nth labels to show. Currently showing every second label. 
+      	// Stagger specifies the number of lines to spread the labels over.
       	labels: {
       		step: 2,
       		staggerLines: 1
@@ -25,22 +29,36 @@
         }
       },
       yAxis: {
+        // y-axis grid line colour
+        gridLineColor: '#E6E6E6',
         title: {
           text: "Percentage low frequency power"
-        }
+        },
+        // Line indicating the resonance threshold. Values can be changed in the controller
+        plotLines: [{
+        	color: '#B2B2B2',
+        	width: <%= @resonance_line_width %>,
+        	value: <%= @resonance_baseline %>,
+        	dashStyle: 'shortdot'
+        }]
       },
+      // Pop up shown on a data point. This can be customised to say any message from the return line. 
+      // To disable, change enabled to false. 
       tooltip: {
     	enabled: true,
         formatter: function() {
           return '<b>Session Time: ' + this.x + '</b><br>Score: ' + this.y;
         }
       },
+      // Enables data points to be tracked without having to hover over data point.
+      // Legend can be enabled by changing showInLegend to true. 
       plotOptions: {
     	line: {
           enableMouseTracking: true,
           showInLegend: false
         }
       },
+      // Highcharts credits
       credits: {
       	enabled: false
       },
@@ -50,7 +68,6 @@
     });
   });
 </script>
-
 <h1>Session Heart Rates</h1>
 <div id ="session_graph" style="width:1000px; height:400px;"> </div>
 <br>

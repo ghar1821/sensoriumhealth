@@ -4,12 +4,17 @@ require "lomb"
 
 class IbiController < ApplicationController
 	def index
+        # Set threshold variables 
+        @resonance_baseline = 0.5
+        @yAxis_start = 0.2
+        @resonance_line_width = 2
+        
         # Display data from the relaxation_session table
         # Number of records needs to be >128
         # Currently, not linked to the database
         @mock_data = Numbers.get_data
         
-        # Get data from data base (uncomment)
+        # Get data from data base (uncomment next two lines)
         # @data = Ibi.beatvalue
         # @analysis = Analysis.initialize(@data)
         
