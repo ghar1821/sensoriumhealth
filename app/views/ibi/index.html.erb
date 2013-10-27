@@ -25,14 +25,14 @@
       		staggerLines: 1
       	},
         title: {
-          text: "Time"
+          text: "Time (mins)"
         }
       },
       yAxis: {
         // y-axis grid line colour
         gridLineColor: '#E6E6E6',
         title: {
-          text: "Percentage low frequency power"
+          text: "Percentage low frequency power (%)"
         },
         // Line indicating the resonance threshold. Values can be changed in the controller
         plotLines: [{
@@ -48,7 +48,7 @@
     	enabled: true,
     	crosshairs: true,
         formatter: function() {
-          return '<b>Session Time: ' + this.x + 's </b><br>Score: ' + this.y + '%';
+          return '<b>Session Time: ' + this.x + ' mins </b><br>Score: ' + this.y + '%';
         }
       },
       // Enables data points to be tracked without having to hover over data point.
