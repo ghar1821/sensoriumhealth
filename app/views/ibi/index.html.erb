@@ -46,6 +46,7 @@
       // To disable, change enabled to false. 
       tooltip: {
     	enabled: true,
+    	crosshairs: true,
         formatter: function() {
           return '<b>Session Time: ' + this.x + 's </b><br>Score: ' + this.y + '%';
         }
@@ -145,7 +146,8 @@ $(function () {
 <!-- Table displaying user statistics -->
 <h2> Session Statistics </h2> 
 <div>
-  <table border="1" >
+  <table class="table table-hover" border="1" >
+  	<tbody>
   	<tr> 
 	  <th> Min heart rate </th>
 	  <th> Max heart rate </th>
@@ -162,6 +164,7 @@ $(function () {
 	  <td> <%= @total_time_resonance %> mins </td>
 	  <td> <%= @total_time %> mins </td>
 	</tr>
+	<tbody>
   </table>
 </div>
 <br>
@@ -170,9 +173,12 @@ $(function () {
 <div>
 	<table> 
 		<tr> 
+			<td> <%= image_tag("Cumulative_graph.png") %> </td>
+			<td> <%= image_tag("Resonance_per_session.png") %> </td>
+		</tr>
+		<tr>
 			<td> Cumulative Line Chart </td>
 			<td> Resonance per session </td>
-			
 		</tr>
 	</table>
 </div>
