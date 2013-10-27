@@ -5,8 +5,7 @@ require "lomb"
 class IbiController < ApplicationController
 	def index
         # Set threshold variables 
-        @resonance_baseline = 0.5
-        @yAxis_start = 0.2
+        @resonance_baseline = 50
         @resonance_line_width = 2
         
         # Display data from the relaxation_session table
@@ -29,7 +28,7 @@ class IbiController < ApplicationController
         # Most common frequency in the session.
         @most_common_freq = Analysis.get_mcf.round(4)
         # Total time in resonance.
-        @total_time_resonance = Analysis.get_ttr.round(2)
+        @total_time_resonance = ((Analysis.get_ttr)/60).floor
         
         # LF = low frequency [0.04, 0.15)Hz.
 		# A list of: percentage of LF power in each window/ time of each window.
@@ -40,5 +39,7 @@ class IbiController < ApplicationController
 		# the last beat in that window. Time is in seconds.
 		@power = Analysis.get_power
 		@time = Analysis.get_time
+		@total_time = @time.last
+		@other_time = 6
     end
 end

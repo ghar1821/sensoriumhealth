@@ -3,7 +3,7 @@
 # Calculates all necessary information.
 # Use "get" methods listed at the bottom.
 module Analysis
-	class << self
+class << self
 	# Global variables
 	@@min_hr		# Minimum heart rate
 	@@max_hr		# Maximum heart rate
@@ -14,13 +14,43 @@ module Analysis
 
 	# Initialise.
 	def initialize(ibi)
-		# Analyse IBIs using Lomb method.
-		analyse(ibi)
-		# # Adjust amplitudes from Lomb method to PSDs.
-		# for i in (0...@@power.length)
-		# 	# Scalar is ONLY suitable for window_size = 128
-		# 	@@power[i] /= 0.078345
-		# end
+		# Check if input data is valid.
+		if is_valid(ibi)
+			# Analyse IBIs using Lomb method.
+			analyse(ibi)
+			# # Adjust amplitudes from Lomb method to PSDs.
+			# for i in (0...@@power.length)
+			# 	# Scalar is ONLY suitable for window_size = 128
+			# 	@@power[i] /= 0.078345
+			# end
+		else
+			@@min_hr = nil
+			@@max_hr = nil
+			@@power	= []
+			@@time	= []
+			@@mcf = nil
+			@@ttr = nil
+		end
+	end
+
+	# Checks if input data is valid.
+	def is_valid(input)
+		# If empty input.
+		if input == nil
+			return false
+		end
+		# If input is too small.
+		if input.length < 128
+			return false
+		end
+		# Check if input is valid.
+		for i in (0...input.length)
+			if !input[i].is_a? Fixnum
+				return false
+			end
+		end
+		# Else return true.
+		return true
 	end
 
 	# Calculate all necessary information.
@@ -53,10 +83,10 @@ module Analysis
 			# Update total_frequency.
 			total_frequency[frequency] += power
 			# Update power.
-			@@power << percentage
+			@@power << (percentage*100).round(1)
 			# Time of window is defined as the time of the last beat in that window.
 			# Time is shifted back so that the first time is at 0.
-			@@time << time[i+window_size-1]-time[window_size-1]
+			@@time << time[i+window_size-1]
 		end
 		# Because the time intervals are not uniformly distributed,
 		# it may be difficult to generate a visual graph. 
@@ -68,7 +98,7 @@ module Analysis
 		counter = 0
 		# Find number of windows with resonance.
 		for i in (0...@@time.length)
-			if @@power[i] > 0
+			if @@power[i] > 50
 				counter += 1
 			end
 		end
@@ -82,11 +112,11 @@ module Analysis
 	def prepare(ibi)
 		time = []
 		# First time is first IBI.
-		time << (ibi[0] /= 1000.0)
+		time << ((ibi[0] /= 1000.0))
 		# Loop from 2nd IBI to end.s
 		for i in (1...ibi.length)
 			# Time = cumulative sum of IBIs.
-			time[i] = (ibi[i] /= 1000.0)+time[i-1]
+			time[i] = ((ibi[i] /= 1000.0))+time[i-1]
 		end
 		return time, ibi
 	end
@@ -113,9 +143,9 @@ module Analysis
 				delta_y = y[i+1]-y[i]
 				gradient = delta_y/delta_x	# gradient
 				# Add current pointer.
-				inter_x << p
+				inter_x << (p/60).floor
 				# Add estimated y value for current pointer.
-				inter_y << y[i]+(p-x[i])*gradient
+				inter_y << (y[i]+(p-x[i])*gradient).round(1)
 				# Increment pointer.
 				p += r
 			elsif p > x[i+1]
@@ -149,5 +179,6 @@ module Analysis
 	def get_ttr
 		return @@ttr
 	end
-end 
+
+end
 end

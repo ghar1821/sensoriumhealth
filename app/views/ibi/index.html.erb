@@ -25,14 +25,14 @@
       		staggerLines: 1
       	},
         title: {
-          text: "Time"
+          text: "Time (mins)"
         }
       },
       yAxis: {
         // y-axis grid line colour
         gridLineColor: '#E6E6E6',
         title: {
-          text: "Percentage low frequency power"
+          text: "Percentage low frequency power (%)"
         },
         // Line indicating the resonance threshold. Values can be changed in the controller
         plotLines: [{
@@ -46,8 +46,9 @@
       // To disable, change enabled to false. 
       tooltip: {
     	enabled: true,
+    	crosshairs: true,
         formatter: function() {
-          return '<b>Session Time: ' + this.x + '</b><br>Score: ' + this.y;
+          return '<b>Session Time: ' + this.x + ' mins </b><br>Score: ' + this.y + '%';
         }
       },
       // Enables data points to be tracked without having to hover over data point.
@@ -55,40 +56,135 @@
       plotOptions: {
     	line: {
           enableMouseTracking: true,
-          showInLegend: false
+          showInLegend: false,
+          lineWidth: 0.5
         }
       },
       // Highcharts credits
       credits: {
       	enabled: false
       },
+      // Defines the data for the yAxis 
+      // Threshold is the point where the line changes colour. Can be changed in the controller. 
       series: [{
-     	data: <%= @power %>
-      }]
+     	data: <%= @power %>,
+     	threshold: <%= @resonance_baseline %>,
+     	positiveColor: '#4391E3',
+     	negativeColor: '#99C82E'
+	  }],
     });
   });
 </script>
-<h1>Session Heart Rates</h1>
+<!-- Resonance pie chart -->
+<script type="text/javascript" charset="utf-8">
+$(function () {
+    	
+    	// Radialize the colors
+		Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function(color) {
+		    return {
+		        radialGradient: { cx: 0.5, cy: 0.3, r: 0.7 },
+		        stops: [
+		            [0, color],
+		            [1, Highcharts.Color(color).brighten(+0.3).get('rgb')] // darken
+		        ]
+		    };
+		});
+		
+		// Build the chart
+        new Highcharts.Chart({
+      		chart: {
+        		renderTo: "container",
+        		plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+      		}, 
+            title: {
+                text: 'Time spent in resonance'
+            },
+            tooltip: {
+        	    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        color: '#000000',
+                        connectorColor: '#000000',
+                        //formatter: function() {
+                        //    return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+                        //}
+                    }
+                }
+            },
+            // Highcharts credits
+      		credits: {
+      			enabled: false
+      		},
+            series: [{
+                type: 'pie',
+                name: 'Percentage of Time',
+                data: [
+                    ['In Resonance', <%= @total_time_resonance %> ],
+                    ['Not In Resonance', <%= @total_time %>],
+                    {
+                        name: 'Other',
+                        y: <%= @other_time %>,
+                        sliced: true,
+                        selected: true
+                    }
+                ]
+            }]
+        });
+    });
+    
+</script>
+<h1>Session Heart Rates</h1> 
 <div id ="session_graph" style="width:1000px; height:400px;"> </div>
 <br>
 <!-- Table displaying user statistics -->
-<h4> Session Statistics </h4> 
+<h2> Session Statistics </h2> 
 <div>
-  <table border="1" >
+  <table class="table table-hover" border="1" >
+  	<tbody>
   	<tr> 
+	  <th> Session date </th>
+	  <th> Session time </th>
 	  <th> Min heart rate </th>
 	  <th> Max heart rate </th>
 	  <th> Range </th>
 	  <th> Most common frequency </th>
 	  <th> Total time in resonance </th>
+	  <th> Total time </th>
 	</tr>
 	<tr>
+	  <td> 7 October 2013 </td>
+	  <td> 10:23 </td>
 	  <td> <%= @min_heart_rate %> bpm </td>
 	  <td> <%= @max_heart_rate %> bpm </td>
 	  <td> <%= @max_heart_rate - @min_heart_rate %> bpm </td>
 	  <td> <%= @most_common_freq %> Hz </td>
-	  <td> <%= @total_time_resonance %> s </td>
+	  <td> <%= @total_time_resonance %> mins </td>
+	  <td> <%= @total_time %> mins </td>
 	</tr>
+	<tbody>
   </table>
+</div>
+<br>
+<h3> Session Statistics Visualisations </h3> 
+<div id ="container" style="width:1000px; height:400px;"> </div>
+<div>
+	<table> 
+		<tr><h4> Heart Rate Variability per Session </h4></tr>
+		<tr> <%= image_tag("Heartrate_variability.png") %> </tr>
+		<tr> <p> </p></tr>
+		<tr><h4> Resonance per Session </h4></tr>
+		<tr> <%= image_tag("Resonance_per_session.png") %> </tr>
+		<tr>
+			<td> Cumulative Line Chart </td>
+			<td> Resonance per session </td>
+		</tr>
+	</table>
 </div>
 </html>
