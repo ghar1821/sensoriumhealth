@@ -39,7 +39,7 @@ class IbiController < ApplicationController
 		# the last beat in that window. Time is in seconds.
 		@power = Analysis.get_power
 		@time = Analysis.get_time
-		@total_time = ((@time.last)/60).floor
+		@total_time = @time.last
 		@other_time = 6
     end
 end
