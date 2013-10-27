@@ -4,6 +4,11 @@
     <li>
     <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
     </li>
+
+    <li>
+    <%= link_to('Leaderboard', leaderboard_path) %>
+    </li>
+
   <% elsif admin_signed_in? %>
      <li>
     <%= link_to('Send email', send_email_path) %>

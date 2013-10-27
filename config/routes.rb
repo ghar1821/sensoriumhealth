@@ -9,6 +9,7 @@ SensoriumhealthDevise::Application.routes.draw do
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/terms',   to: 'static_pages#terms',   via: 'get'
   match '/privacy', to: 'static_pages#privacy', via: 'get'
+  match '/leaderboard', to: 'user#leaderboard', via: 'get'
 
   match '/send_email', to: 'emailer#contact', via: 'get'
   match '/dispatch_email', to: 'emailer#dispatch_email', as: "dispatch_email", via: 'post'

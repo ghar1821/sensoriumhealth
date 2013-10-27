@@ -1,0 +1,18 @@
+<h1>Leaderboard</h1>
+
+<div>
+<table class="table table-hover" border="1" >
+<tbody>
+  <tr>
+    <th>User</th>
+    <th>Longest time in resonance</th>
+  </tr>
+    <% @users.sort_by{|u| u.longest_time_in_resonance }.reverse.each do |u| %>
+      <tr>
+        <td><%= gravatar_for u %>&nbsp;&nbsp;&nbsp;<%= u.username %></td>
+        <td><%= u.longest_time_in_resonance.strftime "%H:%M:%S" %></td>
+      </tr>
+    <% end %>
+    </tbody>
+</table>
+</div>
