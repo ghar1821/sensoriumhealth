@@ -112,11 +112,11 @@ class << self
 	def prepare(ibi)
 		time = []
 		# First time is first IBI.
-		time << ((ibi[0] /= 1000.0))
+		time << ((ibi[0] /= 1000.0)).round(1)
 		# Loop from 2nd IBI to end.s
 		for i in (1...ibi.length)
 			# Time = cumulative sum of IBIs.
-			time[i] = ((ibi[i] /= 1000.0))+time[i-1]
+			time[i] = ((ibi[i] /= 1000.0)).round(1)+time[i-1]
 		end
 		return time, ibi
 	end
@@ -143,7 +143,7 @@ class << self
 				delta_y = y[i+1]-y[i]
 				gradient = delta_y/delta_x	# gradient
 				# Add current pointer.
-				inter_x << (p/60).floor
+				inter_x << p
 				# Add estimated y value for current pointer.
 				inter_y << (y[i]+(p-x[i])*gradient).round(1)
 				# Increment pointer.
