@@ -25,6 +25,8 @@ class User < ActiveRecord::Base
 
   validates_format_of :email, :with => Devise.email_regexp
 
+  before_save :default_resonance
+
   def self.find_first_by_auth_conditions(warden_conditions)
       conditions = warden_conditions.dup
       if login = conditions.delete(:login)
@@ -32,7 +34,11 @@ class User < ActiveRecord::Base
       else
           where(conditions).first
       end
-  end      
+  end    
+
+  def default_resonance
+    self.longest_time_in_resonance ||= "2000-01-01 00:00:00"
+  end  
 
   attr_accessor :login, :terms
 

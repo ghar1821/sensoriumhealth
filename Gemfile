@@ -27,6 +27,8 @@ gem "tlsmail", "~> 0.0.1"
 
 gem "nokogiri", "~> 1.6.0"
 
+
+
 group :development, :test do
     gem 'rspec-rails', "~> 2.14.0"
     gem 'factory_girl_rails', '~> 4.2.1'    
@@ -53,6 +55,7 @@ group :development do
     gem 'quiet_assets', '~> 1.0.2'
     gem 'better_errors', '~> 1.0.1'
     gem 'binding_of_caller', '~> 0.7.2'
+    gem "rails-erd", "~> 1.1.0"
 end
 
 # Use SCSS for stylesheets

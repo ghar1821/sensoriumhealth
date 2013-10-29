@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>module RelaxationSessionsHelper - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>app/helpers/relaxation_sessions_helper.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-Sample">#Sample</a>
+    
+    <li><a href="#method-i-fft">#fft</a>
+    
+    <li><a href="#method-i-get_data">#get_data</a>
+    
+    <li><a href="#method-i-get_magnitude">#get_magnitude</a>
+    
+    <li><a href="#method-i-is_float-3F">#is_float?</a>
+    
+    <li><a href="#method-i-to_magnitude">#to_magnitude</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Admin.html">Admin</a>
+  
+    <li><a href="./AdminController.html">AdminController</a>
+  
+    <li><a href="./Analysis.html">Analysis</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./Emailer.html">Emailer</a>
+  
+    <li><a href="./EmailerController.html">EmailerController</a>
+  
+    <li><a href="./HomeController.html">HomeController</a>
+  
+    <li><a href="./Ibi.html">Ibi</a>
+  
+    <li><a href="./IbiController.html">IbiController</a>
+  
+    <li><a href="./Lomb.html">Lomb</a>
+  
+    <li><a href="./Numbers.html">Numbers</a>
+  
+    <li><a href="./RelaxationSession.html">RelaxationSession</a>
+  
+    <li><a href="./RelaxationSessionsController.html">RelaxationSessionsController</a>
+  
+    <li><a href="./RelaxationSessionsHelper.html">RelaxationSessionsHelper</a>
+  
+    <li><a href="./StaticPagesController.html">StaticPagesController</a>
+  
+    <li><a href="./Status.html">Status</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UserController.html">UserController</a>
+  
+    <li><a href="./UsersHelper.html">UsersHelper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module RelaxationSessionsHelper</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(ibi)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File app/helpers/relaxation_sessions_helper.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">ibi</span>)
+    <span class="ruby-ivar">@ibi</span> = <span class="ruby-identifier">ibi</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-Sample" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">Sample</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="RelaxationSessionsHelper.html#method-i-Sample">#Sample</a> class
+to generate FFT. No error corrections, no noise removal, interpolation.</p>
+          
+
+          
+          <div class="method-source-code" id="Sample-source">
+            <pre><span class="ruby-comment"># File app/helpers/relaxation_sessions_helper.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Sample</span>
+    <span class="ruby-comment"># Define some arbitrary sample rate.</span>
+    <span class="ruby-identifier">@@sample_rate</span> = <span class="ruby-value">0.8</span>
+    <span class="ruby-comment"># Define some arbitrary window size.</span>
+    <span class="ruby-identifier">@@window_size</span> = <span class="ruby-value">128</span>
+    
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">ibi</span>)
+        <span class="ruby-ivar">@ibi</span> = <span class="ruby-identifier">ibi</span>
+    <span class="ruby-keyword">end</span>
+    
+    <span class="ruby-comment"># Fast Fourier Transform. Implementation is based of gregfjohnson.</span>
+    <span class="ruby-comment"># Original code can be found at http://gregfjohnson.com/fftruby/</span>
+    <span class="ruby-comment"># input.length is assumed to be a power of 2.</span>
+    <span class="ruby-comment"># Returns -1 if error.</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">fft</span>(<span class="ruby-identifier">input</span>)
+        <span class="ruby-comment"># Check if input is a power of 2.</span>
+        <span class="ruby-keyword">if</span> (<span class="ruby-constant">Math</span>.<span class="ruby-identifier">log</span>(<span class="ruby-identifier">input</span>.<span class="ruby-identifier">length</span>)<span class="ruby-operator">/</span><span class="ruby-constant">Math</span>.<span class="ruby-identifier">log</span>(<span class="ruby-value">2</span>)<span class="ruby-operator">%</span><span class="ruby-value">1</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>)
+            <span class="ruby-keyword">return</span> <span class="ruby-value">-1</span>
+        <span class="ruby-keyword">end</span>
+        
+        <span class="ruby-comment"># Base case.</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">input</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">input</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">1</span>
+        
+        <span class="ruby-comment"># split input into even and odd parts</span>
+        <span class="ruby-identifier">even</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">input</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">input</span>[<span class="ruby-value">2</span>*<span class="ruby-identifier">i</span>] }
+        <span class="ruby-identifier">odd</span>  = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">input</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">input</span>[<span class="ruby-value">2</span>*<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>] }
+        
+        <span class="ruby-comment"># Recursively solve each part.</span>
+        <span class="ruby-identifier">fft_even</span> = <span class="ruby-identifier">fft</span>(<span class="ruby-identifier">even</span>)
+        <span class="ruby-identifier">fft_odd</span>  = <span class="ruby-identifier">fft</span>(<span class="ruby-identifier">odd</span>)
+        
+        <span class="ruby-comment"># Double length of each part.</span>
+        <span class="ruby-identifier">fft_even</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">fft_even</span>)
+        <span class="ruby-identifier">fft_odd</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">fft_odd</span>)
+        
+        <span class="ruby-comment"># Calculate every element of FFT: e^(-2*pi*i*k/n).</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">input</span>.<span class="ruby-identifier">length</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">fft_even</span>[<span class="ruby-identifier">i</span>]<span class="ruby-operator">+</span><span class="ruby-identifier">fft_odd</span>[<span class="ruby-identifier">i</span>]*<span class="ruby-constant">Math</span><span class="ruby-operator">::</span><span class="ruby-constant">E</span><span class="ruby-operator">**</span><span class="ruby-constant">Complex</span>(<span class="ruby-value">0</span>, <span class="ruby-value">-2</span>*<span class="ruby-constant">Math</span><span class="ruby-operator">::</span><span class="ruby-constant">PI</span>*<span class="ruby-identifier">i</span><span class="ruby-operator">/</span><span class="ruby-identifier">input</span>.<span class="ruby-identifier">length</span>) }
+    <span class="ruby-keyword">end</span>
+    
+    <span class="ruby-comment"># Converts complex numbers (x+yi) to magnitude. Defined by: sqrt(x^2+y^2).</span>
+    <span class="ruby-comment"># Returns new vector of magnitudes of size N/2; second half of input vector</span>
+    <span class="ruby-comment"># is imaginary and discared.</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_magnitude</span>(<span class="ruby-identifier">input</span>)
+        <span class="ruby-identifier">magnitude</span> = []
+        <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">input</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>)
+            <span class="ruby-identifier">magnitude</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">input</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">magnitude</span>)*<span class="ruby-identifier">i</span>*<span class="ruby-identifier">@@sample_rate</span><span class="ruby-operator">/</span><span class="ruby-identifier">@@window_size</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">magnitude</span>
+    <span class="ruby-keyword">end</span>
+    
+    <span class="ruby-comment"># Returns magnitude.</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_magnitude</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">to_magnitude</span>(<span class="ruby-identifier">fft</span>(<span class="ruby-ivar">@ibi</span>))
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- Sample-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- Sample-method -->
+
+    
+      <div id="method-i-fft" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fft</span><span
+            class="method-args">(input)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fast Fourier Transform. Implementation is based of gregfjohnson. Original
+code can be found at <a
+href="http://gregfjohnson.com/fftruby/">gregfjohnson.com/fftruby/</a>
+input.length is assumed to be a power of 2. Returns -1 if error.</p>
+          
+
+          
+          <div class="method-source-code" id="fft-source">
+            <pre><span class="ruby-comment"># File app/helpers/relaxation_sessions_helper.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fft</span>(<span class="ruby-identifier">input</span>)
+    <span class="ruby-comment"># Check if input is a power of 2.</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-constant">Math</span>.<span class="ruby-identifier">log</span>(<span class="ruby-identifier">input</span>.<span class="ruby-identifier">length</span>)<span class="ruby-operator">/</span><span class="ruby-constant">Math</span>.<span class="ruby-identifier">log</span>(<span class="ruby-value">2</span>)<span class="ruby-operator">%</span><span class="ruby-value">1</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-value">-1</span>
+    <span class="ruby-keyword">end</span>
+    
+    <span class="ruby-comment"># Base case.</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">input</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">input</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">1</span>
+    
+    <span class="ruby-comment"># split input into even and odd parts</span>
+    <span class="ruby-identifier">even</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">input</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">input</span>[<span class="ruby-value">2</span>*<span class="ruby-identifier">i</span>] }
+    <span class="ruby-identifier">odd</span>  = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">input</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">input</span>[<span class="ruby-value">2</span>*<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>] }
+    
+    <span class="ruby-comment"># Recursively solve each part.</span>
+    <span class="ruby-identifier">fft_even</span> = <span class="ruby-identifier">fft</span>(<span class="ruby-identifier">even</span>)
+    <span class="ruby-identifier">fft_odd</span>  = <span class="ruby-identifier">fft</span>(<span class="ruby-identifier">odd</span>)
+    
+    <span class="ruby-comment"># Double length of each part.</span>
+    <span class="ruby-identifier">fft_even</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">fft_even</span>)
+    <span class="ruby-identifier">fft_odd</span>.<span class="ruby-identifier">concat</span>(<span class="ruby-identifier">fft_odd</span>)
+    
+    <span class="ruby-comment"># Calculate every element of FFT: e^(-2*pi*i*k/n).</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">input</span>.<span class="ruby-identifier">length</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">fft_even</span>[<span class="ruby-identifier">i</span>]<span class="ruby-operator">+</span><span class="ruby-identifier">fft_odd</span>[<span class="ruby-identifier">i</span>]*<span class="ruby-constant">Math</span><span class="ruby-operator">::</span><span class="ruby-constant">E</span><span class="ruby-operator">**</span><span class="ruby-constant">Complex</span>(<span class="ruby-value">0</span>, <span class="ruby-value">-2</span>*<span class="ruby-constant">Math</span><span class="ruby-operator">::</span><span class="ruby-constant">PI</span>*<span class="ruby-identifier">i</span><span class="ruby-operator">/</span><span class="ruby-identifier">input</span>.<span class="ruby-identifier">length</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- fft-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- fft-method -->
+
+    
+      <div id="method-i-get_data" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_data</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>defines random data</p>
+          
+
+          
+          <div class="method-source-code" id="get_data-source">
+            <pre><span class="ruby-comment"># File app/helpers/relaxation_sessions_helper.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_data</span>
+            <span class="ruby-keyword">return</span> [<span class="ruby-value">930.0004185</span>,
+    <span class="ruby-value">952.9996458</span>,
+    <span class="ruby-value">1000</span>,
+    <span class="ruby-value">1008.000161</span>,
+    <span class="ruby-value">1000</span>,
+    <span class="ruby-value">969.0000727</span>,
+    <span class="ruby-value">852.000426</span>,
+    <span class="ruby-value">952.9996458</span>,
+    <span class="ruby-value">991.9995238</span>,
+    <span class="ruby-value">1008.000161</span>,
+    <span class="ruby-value">991.9995238</span>,
+    <span class="ruby-value">930.0004185</span>,
+    <span class="ruby-value">969.0000727</span>,
+    <span class="ruby-value">976.9997965</span>,
+    <span class="ruby-value">984.0001574</span>,
+    <span class="ruby-value">914.000198</span>,
+    <span class="ruby-value">827.9996357</span>,
+    <span class="ruby-value">922.0003104</span>,
+    <span class="ruby-value">952.9996458</span>,
+    <span class="ruby-value">969.0000727</span>,
+    <span class="ruby-value">1000</span>,
+    <span class="ruby-value">937.999778</span>,
+    <span class="ruby-value">1008.000161</span>,
+    <span class="ruby-value">1016.000312</span>,
+    <span class="ruby-value">984.0001574</span>,
+    <span class="ruby-value">930.0004185</span>,
+    <span class="ruby-value">937.999778</span>,
+    <span class="ruby-value">984.0001574</span>,
+    <span class="ruby-value">984.0001574</span>,
+    <span class="ruby-value">952.9996458</span>,
+    <span class="ruby-value">914.000198</span>,
+    <span class="ruby-value">866.9994018</span>,
+    <span class="ruby-value">930.0004185</span>,
+    <span class="ruby-value">969.0000727</span>,
+    <span class="ruby-value">944.9994566</span>,
+    <span class="ruby-value">844.0005627</span>,
+    <span class="ruby-value">812.0002815</span>,
+    <span class="ruby-value">875.0003646</span>,
+    <span class="ruby-value">890.9995679</span>,
+    <span class="ruby-value">905.9995289</span>,
+    <span class="ruby-value">804.9995841</span>,
+    <span class="ruby-value">875.0003646</span>,
+    <span class="ruby-value">930.0004185</span>,
+    <span class="ruby-value">937.999778</span>,
+    <span class="ruby-value">930.0004185</span>,
+    <span class="ruby-value">875.0003646</span>,
+    <span class="ruby-value">875.0003646</span>,
+    <span class="ruby-value">890.9995679</span>,
+    <span class="ruby-value">827.9996357</span>,
+    <span class="ruby-value">757.9997398</span>,
+    <span class="ruby-value">757.9997398</span>,
+    <span class="ruby-value">804.9995841</span>,
+    <span class="ruby-value">827.9996357</span>,
+    <span class="ruby-value">789.000284</span>,
+    <span class="ruby-value">733.9997235</span>,
+    <span class="ruby-value">733.9997235</span>,
+    <span class="ruby-value">765.9998213</span>,
+    <span class="ruby-value">797.0000917</span>,
+    <span class="ruby-value">804.9995841</span>,
+    <span class="ruby-value">836.0004069</span>,
+    <span class="ruby-value">882.9996085</span>,
+    <span class="ruby-value">836.0004069</span>,
+    <span class="ruby-value">742.0003092</span>,
+    <span class="ruby-value">750</span>,
+    <span class="ruby-value">804.9995841</span>,
+    <span class="ruby-value">866.9994018</span>,
+    <span class="ruby-value">930.0004185</span>,
+    <span class="ruby-value">976.9997965</span>,
+    <span class="ruby-value">1008.000161</span>,
+    <span class="ruby-value">1016.000312</span>,
+    <span class="ruby-value">1000</span>,
+    <span class="ruby-value">1000</span>,
+    <span class="ruby-value">1008.000161</span>,
+    <span class="ruby-value">984.0001574</span>,
+    <span class="ruby-value">922.0003104</span>,
+    <span class="ruby-value">844.0005627</span>,
+    <span class="ruby-value">812.0002815</span>,
+    <span class="ruby-value">844.0005627</span>,
+    <span class="ruby-value">905.9995289</span>,
+    <span class="ruby-value">937.999778</span>,
+    <span class="ruby-value">952.9996458</span>,
+    <span class="ruby-value">984.0001574</span>,
+    <span class="ruby-value">1039.00062</span>,
+    <span class="ruby-value">1023.00046</span>,
+    <span class="ruby-value">1023.00046</span>,
+    <span class="ruby-value">1031.000466</span>,
+    <span class="ruby-value">1000</span>,
+    <span class="ruby-value">969.0000727</span>,
+    <span class="ruby-value">952.9996458</span>,
+    <span class="ruby-value">937.999778</span>,
+    <span class="ruby-value">930.0004185</span>,
+    <span class="ruby-value">937.999778</span>,
+    <span class="ruby-value">866.9994018</span>,
+    <span class="ruby-value">812.0002815</span>,
+    <span class="ruby-value">789.000284</span>,
+    <span class="ruby-value">797.0000917</span>,
+    <span class="ruby-value">804.9995841</span>,
+    <span class="ruby-value">827.9996357</span>,
+    <span class="ruby-value">866.9994018</span>,
+    <span class="ruby-value">898.0006017</span>,
+    <span class="ruby-value">930.0004185</span>,
+    <span class="ruby-value">960.9994394</span>,
+    <span class="ruby-value">1000</span>,
+    <span class="ruby-value">984.0001574</span>,
+    <span class="ruby-value">984.0001574</span>,
+    <span class="ruby-value">969.0000727</span>,
+    <span class="ruby-value">937.999778</span>,
+    <span class="ruby-value">944.9994566</span>,
+    <span class="ruby-value">905.9995289</span>,
+    <span class="ruby-value">844.0005627</span>,
+    <span class="ruby-value">812.0002815</span>,
+    <span class="ruby-value">812.0002815</span>,
+    <span class="ruby-value">827.9996357</span>,
+    <span class="ruby-value">858.9995233</span>,
+    <span class="ruby-value">898.0006017</span>,
+    <span class="ruby-value">944.9994566</span>,
+    <span class="ruby-value">1000</span>,
+    <span class="ruby-value">1000</span>,
+    <span class="ruby-value">991.9995238</span>,
+    <span class="ruby-value">976.9997965</span>,
+    <span class="ruby-value">914.000198</span>,
+    <span class="ruby-value">804.9995841</span>,
+    <span class="ruby-value">780.999836</span>,
+    <span class="ruby-value">742.0003092</span>,
+    <span class="ruby-value">695.0002838</span>,
+    <span class="ruby-value">727.0004326</span>,
+    <span class="ruby-value">757.9997398</span>,
+    <span class="ruby-value">727.0004326</span>]            
+    <span class="ruby-keyword">end</span></pre>
+          </div><!-- get_data-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_data-method -->
+
+    
+      <div id="method-i-get_magnitude" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_magnitude</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns magnitude.</p>
+          
+
+          
+          <div class="method-source-code" id="get_magnitude-source">
+            <pre><span class="ruby-comment"># File app/helpers/relaxation_sessions_helper.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_magnitude</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">to_magnitude</span>(<span class="ruby-identifier">fft</span>(<span class="ruby-ivar">@ibi</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_magnitude-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_magnitude-method -->
+
+    
+      <div id="method-i-is_float-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_float?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>True if string is a valid float, else false.</p>
+          
+
+          
+          <div class="method-source-code" id="is_float-3F-source">
+            <pre><span class="ruby-comment"># File app/helpers/relaxation_sessions_helper.rb, line 193</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_float?</span>
+        <span class="ruby-constant">Float</span>(<span class="ruby-keyword">self</span>) <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- is_float-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- is_float-3F-method -->
+
+    
+      <div id="method-i-to_magnitude" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_magnitude</span><span
+            class="method-args">(input)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Converts complex numbers (x+yi) to magnitude. Defined by: sqrt(x^2+y^2).
+Returns new vector of magnitudes of size N/2; second half of input vector
+is imaginary and discared.</p>
+          
+
+          
+          <div class="method-source-code" id="to_magnitude-source">
+            <pre><span class="ruby-comment"># File app/helpers/relaxation_sessions_helper.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_magnitude</span>(<span class="ruby-identifier">input</span>)
+    <span class="ruby-identifier">magnitude</span> = []
+    <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">input</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>)
+        <span class="ruby-identifier">magnitude</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">input</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">magnitude</span>)*<span class="ruby-identifier">i</span>*<span class="ruby-identifier">@@sample_rate</span><span class="ruby-operator">/</span><span class="ruby-identifier">@@window_size</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">magnitude</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_magnitude-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_magnitude-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

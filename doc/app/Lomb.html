@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+<title>module Lomb - Rails Application Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/lomb.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-avg_var">::avg_var</a>
+    
+    <li><a href="#method-c-fasper">::fasper</a>
+    
+    <li><a href="#method-c-fourier">::fourier</a>
+    
+    <li><a href="#method-c-get_amplitude">::get_amplitude</a>
+    
+    <li><a href="#method-c-get_frequency">::get_frequency</a>
+    
+    <li><a href="#method-c-get_lf_peak">::get_lf_peak</a>
+    
+    <li><a href="#method-c-get_lf_perc">::get_lf_perc</a>
+    
+    <li><a href="#method-c-initialize">::initialize</a>
+    
+    <li><a href="#method-c-is_resonant">::is_resonant</a>
+    
+    <li><a href="#method-c-min_max">::min_max</a>
+    
+    <li><a href="#method-c-realft">::realft</a>
+    
+    <li><a href="#method-c-sign">::sign</a>
+    
+    <li><a href="#method-c-spread">::spread</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Admin.html">Admin</a>
+  
+    <li><a href="./AdminController.html">AdminController</a>
+  
+    <li><a href="./Analysis.html">Analysis</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./Emailer.html">Emailer</a>
+  
+    <li><a href="./EmailerController.html">EmailerController</a>
+  
+    <li><a href="./HomeController.html">HomeController</a>
+  
+    <li><a href="./Ibi.html">Ibi</a>
+  
+    <li><a href="./IbiController.html">IbiController</a>
+  
+    <li><a href="./Lomb.html">Lomb</a>
+  
+    <li><a href="./Numbers.html">Numbers</a>
+  
+    <li><a href="./RelaxationSession.html">RelaxationSession</a>
+  
+    <li><a href="./RelaxationSessionsController.html">RelaxationSessionsController</a>
+  
+    <li><a href="./RelaxationSessionsHelper.html">RelaxationSessionsHelper</a>
+  
+    <li><a href="./StaticPagesController.html">StaticPagesController</a>
+  
+    <li><a href="./Status.html">Status</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./UserController.html">UserController</a>
+  
+    <li><a href="./UsersHelper.html">UsersHelper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module Lomb</h1>
+
+  <div id="description" class="description">
+    
+<p>Performs <a href="Lomb.html">Lomb</a> analysis. Input parameters are two
+equal length arrays; the first is the time series, and the second is the
+value (ibi) series. Use “get” methods listed at the bottom.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-avg_var" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">avg_var</span><span
+            class="method-args">(vector)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns average and variance of a vector. var = <a
+href="http://i">sum((avg(vec)-vec</a>)**2)/vec.length</p>
+          
+
+          
+          <div class="method-source-code" id="avg_var-source">
+            <pre><span class="ruby-comment"># File lib/lomb.rb, line 197</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">avg_var</span>(<span class="ruby-identifier">vector</span>)
+        <span class="ruby-comment"># Calcualte average/</span>
+        <span class="ruby-identifier">sum</span> = <span class="ruby-value">0.0</span>
+        <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">vector</span>.<span class="ruby-identifier">length</span>)
+                <span class="ruby-identifier">sum</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">vector</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">to_f</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">average</span> = <span class="ruby-identifier">sum</span><span class="ruby-operator">/</span><span class="ruby-identifier">vector</span>.<span class="ruby-identifier">length</span>
+        <span class="ruby-comment"># Calculate variance.</span>
+        <span class="ruby-identifier">sq_sum</span> = <span class="ruby-value">0.0</span>
+        <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">vector</span>.<span class="ruby-identifier">length</span>)
+                <span class="ruby-identifier">sq_sum</span> <span class="ruby-operator">+=</span> (<span class="ruby-identifier">average</span><span class="ruby-operator">-</span><span class="ruby-identifier">vector</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">to_f</span>)<span class="ruby-operator">**</span><span class="ruby-value">2</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">variance</span> = <span class="ruby-identifier">sq_sum</span><span class="ruby-operator">/</span>(<span class="ruby-identifier">vector</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">average</span>, <span class="ruby-identifier">variance</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- avg_var-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- avg_var-method -->
+
+    
+      <div id="method-c-fasper" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fasper</span><span
+            class="method-args">(x, y)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>???</p>
+          
+
+          
+          <div class="method-source-code" id="fasper-source">
+            <pre><span class="ruby-comment"># File lib/lomb.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fasper</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+        <span class="ruby-comment">## Variables?</span>
+        <span class="ruby-comment">## Assuming that each window has length = 128 exactly.</span>
+        <span class="ruby-identifier">l</span> = <span class="ruby-value">128</span>
+        <span class="ruby-comment">## Originally 64*length = 2048</span>
+        <span class="ruby-identifier">n</span> = <span class="ruby-value">1024</span>
+        <span class="ruby-comment"># Initialise arrays.</span>
+        <span class="ruby-identifier">@@frequency</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">n</span>, <span class="ruby-value">0</span>)
+        <span class="ruby-identifier">@@amplitude</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">n</span>, <span class="ruby-value">0</span>)
+        <span class="ruby-comment"># Average and variance.</span>
+        <span class="ruby-identifier">avg</span>, <span class="ruby-identifier">var</span> = <span class="ruby-identifier">avg_var</span>(<span class="ruby-identifier">y</span>)
+        <span class="ruby-comment"># Minimum and maximum.</span>
+        <span class="ruby-identifier">min</span>, <span class="ruby-identifier">max</span> = <span class="ruby-identifier">min_max</span>(<span class="ruby-identifier">x</span>)
+        <span class="ruby-comment">## Difference multiplied by a scalar?</span>
+        <span class="ruby-identifier">diff</span> = <span class="ruby-value">4.0</span>*(<span class="ruby-identifier">max</span><span class="ruby-operator">-</span><span class="ruby-identifier">min</span>).<span class="ruby-identifier">to_f</span>
+        <span class="ruby-comment">## Variables?</span>
+        <span class="ruby-identifier">c1</span> = <span class="ruby-value">0</span>
+        <span class="ruby-identifier">c2</span> = <span class="ruby-value">0</span>
+        <span class="ruby-comment">## ???</span>
+        <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">l</span>)
+                <span class="ruby-comment">## Variables?</span>
+                <span class="ruby-identifier">c1</span> = (<span class="ruby-identifier">x</span>[<span class="ruby-identifier">i</span>]<span class="ruby-operator">-</span><span class="ruby-identifier">min</span>).<span class="ruby-identifier">to_f</span>*(<span class="ruby-identifier">n</span>.<span class="ruby-identifier">to_f</span><span class="ruby-operator">/</span><span class="ruby-identifier">diff</span>)
+                <span class="ruby-identifier">c1</span> <span class="ruby-operator">=</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">to_f</span>
+                <span class="ruby-identifier">c2</span> = <span class="ruby-value">2.0</span>*<span class="ruby-identifier">c1</span>
+                <span class="ruby-identifier">c1</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1.0</span>
+                <span class="ruby-identifier">c2</span> <span class="ruby-operator">=</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">to_f</span>
+                <span class="ruby-identifier">c2</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1.0</span>
+                <span class="ruby-comment">## ???</span>
+                <span class="ruby-identifier">spread</span>(<span class="ruby-identifier">c1</span>, (<span class="ruby-identifier">y</span>[<span class="ruby-identifier">i</span>]<span class="ruby-operator">-</span><span class="ruby-identifier">avg</span>).<span class="ruby-identifier">to_f</span>, <span class="ruby-identifier">@@frequency</span>)
+                <span class="ruby-identifier">spread</span>(<span class="ruby-identifier">c2</span>, <span class="ruby-value">1.0</span>, <span class="ruby-identifier">@@amplitude</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">## ???</span>
+        <span class="ruby-identifier">realft</span>(<span class="ruby-identifier">@@frequency</span>)
+        <span class="ruby-identifier">realft</span>(<span class="ruby-identifier">@@amplitude</span>)
+        <span class="ruby-comment">## Variables?</span>
+        <span class="ruby-identifier">i</span> = <span class="ruby-value">3</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>
+        <span class="ruby-identifier">j</span> = <span class="ruby-value">1</span>
+        <span class="ruby-comment">## Originally 4*length</span>
+        <span class="ruby-keyword">while</span> <span class="ruby-identifier">j</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">l</span>*<span class="ruby-value">2</span>
+                <span class="ruby-comment">## Variables?</span>
+                <span class="ruby-identifier">hypo</span> = <span class="ruby-constant">Math</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-identifier">@@amplitude</span>[<span class="ruby-identifier">i</span>]*<span class="ruby-identifier">@@amplitude</span>[<span class="ruby-identifier">i</span>]<span class="ruby-operator">+</span><span class="ruby-identifier">@@amplitude</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>]*<span class="ruby-identifier">@@amplitude</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>])
+                <span class="ruby-identifier">hc2wt</span> = <span class="ruby-value">0.5</span>*<span class="ruby-identifier">@@amplitude</span>[<span class="ruby-identifier">i</span>]<span class="ruby-operator">/</span><span class="ruby-identifier">hypo</span>
+                <span class="ruby-identifier">hs2wt</span> = <span class="ruby-value">0.5</span>*<span class="ruby-identifier">@@amplitude</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>]<span class="ruby-operator">/</span><span class="ruby-identifier">hypo</span>
+                <span class="ruby-identifier">cwt</span> = <span class="ruby-constant">Math</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-value">0.5</span><span class="ruby-operator">+</span><span class="ruby-identifier">hc2wt</span>)
+                <span class="ruby-identifier">swt</span> = <span class="ruby-identifier">sign</span>(<span class="ruby-constant">Math</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-value">0.5</span><span class="ruby-operator">-</span><span class="ruby-identifier">hc2wt</span>), <span class="ruby-identifier">hs2wt</span>)
+                <span class="ruby-identifier">den</span> = <span class="ruby-value">0.5</span>*<span class="ruby-identifier">l</span><span class="ruby-operator">+</span><span class="ruby-identifier">hc2wt</span>*<span class="ruby-identifier">@@amplitude</span>[<span class="ruby-identifier">i</span>]<span class="ruby-operator">+</span><span class="ruby-identifier">hs2wt</span>*<span class="ruby-identifier">@@amplitude</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>]
+                <span class="ruby-identifier">cterm</span> = ((<span class="ruby-identifier">cwt</span>*<span class="ruby-identifier">@@frequency</span>[<span class="ruby-identifier">i</span>]<span class="ruby-operator">+</span><span class="ruby-identifier">swt</span>*<span class="ruby-identifier">@@frequency</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>])<span class="ruby-operator">**</span><span class="ruby-value">2</span>)<span class="ruby-operator">/</span><span class="ruby-identifier">den</span>
+                <span class="ruby-identifier">sterm</span> = ((<span class="ruby-identifier">cwt</span>*<span class="ruby-identifier">@@frequency</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>]<span class="ruby-operator">-</span><span class="ruby-identifier">swt</span>*<span class="ruby-identifier">@@frequency</span>[<span class="ruby-identifier">i</span>])<span class="ruby-operator">**</span><span class="ruby-value">2</span>)<span class="ruby-operator">/</span>(<span class="ruby-identifier">l</span><span class="ruby-operator">-</span><span class="ruby-identifier">den</span>)
+                <span class="ruby-comment">## ???</span>
+                <span class="ruby-identifier">@@frequency</span>[<span class="ruby-identifier">j</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>] = <span class="ruby-identifier">j</span>*<span class="ruby-value">1.0</span><span class="ruby-operator">/</span>(<span class="ruby-identifier">diff</span>)
+                <span class="ruby-identifier">@@amplitude</span>[<span class="ruby-identifier">j</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>] = (<span class="ruby-identifier">cterm</span><span class="ruby-operator">+</span><span class="ruby-identifier">sterm</span>)<span class="ruby-operator">/</span>(<span class="ruby-value">2.0</span>*<span class="ruby-identifier">var</span>)
+                <span class="ruby-comment">## Increment index?</span>
+                <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">2</span>
+                <span class="ruby-identifier">j</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- fasper-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- fasper-method -->
+
+    
+      <div id="method-c-fourier" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fourier</span><span
+            class="method-args">(data)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fast Fourier transform?</p>
+          
+
+          
+          <div class="method-source-code" id="fourier-source">
+            <pre><span class="ruby-comment"># File lib/lomb.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fourier</span>(<span class="ruby-identifier">data</span>)
+        <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+        <span class="ruby-identifier">j</span> = <span class="ruby-value">0</span>
+        <span class="ruby-keyword">while</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">length</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">j</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">i</span>
+                        <span class="ruby-comment"># Swap elements.</span>
+                        <span class="ruby-identifier">data</span>[<span class="ruby-identifier">j</span>], <span class="ruby-identifier">data</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-identifier">data</span>[<span class="ruby-identifier">i</span>], <span class="ruby-identifier">data</span>[<span class="ruby-identifier">j</span>]
+                        <span class="ruby-identifier">data</span>[<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>], <span class="ruby-identifier">data</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>] = <span class="ruby-identifier">data</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>], <span class="ruby-identifier">data</span>[<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>]
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-comment">## Update index?</span>
+                <span class="ruby-identifier">m</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>
+                <span class="ruby-keyword">while</span> <span class="ruby-identifier">m</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">2</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-value">1</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">m</span>
+                        <span class="ruby-identifier">j</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">m</span>
+                        <span class="ruby-identifier">m</span> <span class="ruby-operator">/=</span> <span class="ruby-value">2</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-value">2</span>
+                <span class="ruby-identifier">j</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">m</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">## ???</span>
+        <span class="ruby-identifier">k</span> = <span class="ruby-value">2</span>
+        <span class="ruby-keyword">while</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">k</span>
+                <span class="ruby-comment">## Variables?</span>
+                <span class="ruby-identifier">theta</span> = <span class="ruby-constant">Math</span><span class="ruby-operator">::</span><span class="ruby-constant">PI</span><span class="ruby-operator">/</span><span class="ruby-identifier">k</span>
+                <span class="ruby-identifier">wtemp</span> = <span class="ruby-constant">Math</span>.<span class="ruby-identifier">sin</span>(<span class="ruby-identifier">theta</span>)
+                <span class="ruby-identifier">wpreal</span> = <span class="ruby-value">-2.0</span>*(<span class="ruby-identifier">wtemp</span><span class="ruby-operator">**</span><span class="ruby-value">2</span>)
+                <span class="ruby-identifier">wpimag</span> = <span class="ruby-constant">Math</span>.<span class="ruby-identifier">sin</span>(<span class="ruby-value">2</span>*<span class="ruby-identifier">theta</span>)
+                <span class="ruby-identifier">wreal</span> = <span class="ruby-value">1.0</span>
+                <span class="ruby-identifier">wimag</span> = <span class="ruby-value">0.0</span>
+                <span class="ruby-comment">## ???</span>
+                <span class="ruby-keyword">for</span> <span class="ruby-identifier">m</span> <span class="ruby-keyword">in</span> (<span class="ruby-value">1</span><span class="ruby-operator">...</span><span class="ruby-identifier">k</span>).<span class="ruby-identifier">step</span>(<span class="ruby-value">2</span>)
+                        <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> (<span class="ruby-identifier">m</span><span class="ruby-operator">..</span><span class="ruby-identifier">data</span>.<span class="ruby-identifier">length</span>).<span class="ruby-identifier">step</span>(<span class="ruby-identifier">k</span>*<span class="ruby-value">2</span>)
+                                        <span class="ruby-comment">## Reusing variable?</span>
+                                        <span class="ruby-identifier">j</span> = <span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">k</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>
+                                        <span class="ruby-comment">## ???</span>
+                                        <span class="ruby-identifier">tempr</span> = <span class="ruby-identifier">wreal</span>*<span class="ruby-identifier">data</span>[<span class="ruby-identifier">j</span>]<span class="ruby-operator">-</span><span class="ruby-identifier">wimag</span>*<span class="ruby-identifier">data</span>[<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>]
+                                        <span class="ruby-identifier">tempi</span> = <span class="ruby-identifier">wreal</span>*<span class="ruby-identifier">data</span>[<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>]<span class="ruby-operator">+</span><span class="ruby-identifier">wimag</span>*<span class="ruby-identifier">data</span>[<span class="ruby-identifier">j</span>]
+                                        <span class="ruby-comment">## ???</span>
+                                        <span class="ruby-identifier">data</span>[<span class="ruby-identifier">j</span>] = <span class="ruby-identifier">data</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>]<span class="ruby-operator">-</span><span class="ruby-identifier">tempr</span>
+                                        <span class="ruby-identifier">data</span>[<span class="ruby-identifier">j</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>] = <span class="ruby-identifier">data</span>[<span class="ruby-identifier">i</span>]<span class="ruby-operator">-</span><span class="ruby-identifier">tempi</span>
+                                        <span class="ruby-identifier">data</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>] <span class="ruby-operator">+=</span> <span class="ruby-identifier">tempr</span>
+                                        <span class="ruby-identifier">data</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">+=</span> <span class="ruby-identifier">tempi</span>
+                        <span class="ruby-keyword">end</span>
+                        <span class="ruby-comment"># ???</span>
+                        <span class="ruby-identifier">wreal</span> = (<span class="ruby-identifier">wtemp</span> = <span class="ruby-identifier">wreal</span>)*<span class="ruby-identifier">wpreal</span><span class="ruby-operator">-</span><span class="ruby-identifier">wimag</span>*<span class="ruby-identifier">wpimag</span><span class="ruby-operator">+</span><span class="ruby-identifier">wreal</span>
+                        <span class="ruby-identifier">wimag</span> = <span class="ruby-identifier">wimag</span>*<span class="ruby-identifier">wpreal</span><span class="ruby-operator">+</span><span class="ruby-identifier">wtemp</span>*<span class="ruby-identifier">wpimag</span><span class="ruby-operator">+</span><span class="ruby-identifier">wimag</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-comment">## Update index?</span>
+                <span class="ruby-identifier">k</span> <span class="ruby-operator">*=</span> <span class="ruby-value">2</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">clone</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- fourier-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- fourier-method -->
+
+    
+      <div id="method-c-get_amplitude" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_amplitude</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_amplitude-source">
+            <pre><span class="ruby-comment"># File lib/lomb.rb, line 306</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_amplitude</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">@@amplitude</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_amplitude-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_amplitude-method -->
+
+    
+      <div id="method-c-get_frequency" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_frequency</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_frequency-source">
+            <pre><span class="ruby-comment"># File lib/lomb.rb, line 302</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_frequency</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">@@frequency</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_frequency-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_frequency-method -->
+
+    
+      <div id="method-c-get_lf_peak" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_lf_peak</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns frequency and its corresponding power of the peak in LF band.</p>
+          
+
+          
+          <div class="method-source-code" id="get_lf_peak-source">
+            <pre><span class="ruby-comment"># File lib/lomb.rb, line 252</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_lf_peak</span>
+        <span class="ruby-comment"># Variables</span>
+        <span class="ruby-identifier">x</span> = <span class="ruby-identifier">@@frequency</span>
+        <span class="ruby-identifier">y</span> = <span class="ruby-identifier">@@amplitude</span>
+        <span class="ruby-comment"># Constants</span>
+        <span class="ruby-identifier">lf</span> = [<span class="ruby-value">0.04</span>, <span class="ruby-value">0.15</span>]
+        <span class="ruby-comment"># Maximum LF band frequency and power</span>
+        <span class="ruby-identifier">max_lf_x</span> = <span class="ruby-value">0.0</span>
+        <span class="ruby-identifier">max_lf_y</span> = <span class="ruby-value">0.0</span>
+        <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">x</span>.<span class="ruby-identifier">length</span>)
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">lf</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">x</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">lf</span>[<span class="ruby-value">1</span>]
+                        <span class="ruby-keyword">if</span> <span class="ruby-identifier">y</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">max_lf_y</span>
+                                <span class="ruby-identifier">max_lf_x</span> = <span class="ruby-identifier">x</span>[<span class="ruby-identifier">i</span>]
+                                <span class="ruby-identifier">max_lf_y</span> = <span class="ruby-identifier">y</span>[<span class="ruby-identifier">i</span>]
+                        <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">x</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">lf</span>[<span class="ruby-value">1</span>]
+                        <span class="ruby-keyword">break</span>
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">max_lf_x</span>, <span class="ruby-identifier">max_lf_y</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_lf_peak-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_lf_peak-method -->
+
+    
+      <div id="method-c-get_lf_perc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_lf_perc</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the percentage of LF band over the total.</p>
+          
+
+          
+          <div class="method-source-code" id="get_lf_perc-source">
+            <pre><span class="ruby-comment"># File lib/lomb.rb, line 275</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_lf_perc</span>
+        <span class="ruby-comment"># Variables</span>
+        <span class="ruby-identifier">x</span> = <span class="ruby-identifier">@@frequency</span>
+        <span class="ruby-identifier">y</span> = <span class="ruby-identifier">@@amplitude</span>
+        <span class="ruby-comment"># Constants</span>
+        <span class="ruby-identifier">vlf</span> = [<span class="ruby-value">0.0033</span>, <span class="ruby-value">0.04</span>]
+        <span class="ruby-identifier">lf</span> = [<span class="ruby-value">0.04</span>, <span class="ruby-value">0.15</span>]
+        <span class="ruby-identifier">hf</span> = [<span class="ruby-value">0.15</span>, <span class="ruby-value">0.4</span>]
+        <span class="ruby-comment"># Total sum of power in each frequency band</span>
+        <span class="ruby-identifier">total_vlf</span> = <span class="ruby-value">0.0</span>
+        <span class="ruby-identifier">total_lf</span> = <span class="ruby-value">0.0</span>
+        <span class="ruby-identifier">total_hf</span> = <span class="ruby-value">0.0</span>
+        <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">x</span>.<span class="ruby-identifier">length</span>)
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">vlf</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">x</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&lt;</span>  <span class="ruby-identifier">vlf</span>[<span class="ruby-value">1</span>]
+                        <span class="ruby-identifier">total_vlf</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">y</span>[<span class="ruby-identifier">i</span>]
+                <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">x</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">lf</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">x</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">lf</span>[<span class="ruby-value">1</span>]
+                        <span class="ruby-identifier">total_lf</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">y</span>[<span class="ruby-identifier">i</span>]
+                <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">x</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">hf</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">x</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">hf</span>[<span class="ruby-value">1</span>]
+                        <span class="ruby-identifier">total_hf</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">y</span>[<span class="ruby-identifier">i</span>]
+                <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">x</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">hf</span>[<span class="ruby-value">1</span>]
+                        <span class="ruby-keyword">break</span>
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment"># Return percentage.</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">total_lf</span><span class="ruby-operator">/</span>(<span class="ruby-identifier">total_vlf</span><span class="ruby-operator">+</span><span class="ruby-identifier">total_lf</span><span class="ruby-operator">+</span><span class="ruby-identifier">total_hf</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_lf_perc-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_lf_perc-method -->
+
+    
+      <div id="method-c-initialize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">initialize</span><span
+            class="method-args">(x, y)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initialise.</p>
+          
+
+          
+          <div class="method-source-code" id="initialize-source">
+            <pre><span class="ruby-comment"># File lib/lomb.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+        <span class="ruby-comment"># Calculate all necessary information.</span>
+        <span class="ruby-identifier">fasper</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- initialize-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- initialize-method -->
+
+    
+      <div id="method-c-is_resonant" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_resonant</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Input parameters are two equal length arrays x (frequency) and y (power).
+Returns true if total LF power &gt;= 50% total power.</p>
+          
+
+          
+          <div class="method-source-code" id="is_resonant-source">
+            <pre><span class="ruby-comment"># File lib/lomb.rb, line 224</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_resonant</span>
+        <span class="ruby-comment"># Variables</span>
+        <span class="ruby-identifier">x</span> = <span class="ruby-identifier">@@frequency</span>
+        <span class="ruby-identifier">y</span> = <span class="ruby-identifier">@@amplitude</span>
+        <span class="ruby-comment"># Constants</span>
+        <span class="ruby-identifier">vlf</span> = [<span class="ruby-value">0.0033</span>, <span class="ruby-value">0.04</span>]
+        <span class="ruby-identifier">lf</span> = [<span class="ruby-value">0.04</span>, <span class="ruby-value">0.15</span>]
+        <span class="ruby-identifier">hf</span> = [<span class="ruby-value">0.15</span>, <span class="ruby-value">0.4</span>]
+        <span class="ruby-comment"># Total sum of power in each frequency band</span>
+        <span class="ruby-identifier">total_vlf</span> = <span class="ruby-value">0.0</span>
+        <span class="ruby-identifier">total_lf</span> = <span class="ruby-value">0.0</span>
+        <span class="ruby-identifier">total_hf</span> = <span class="ruby-value">0.0</span>
+        <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">x</span>.<span class="ruby-identifier">length</span>)
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">x</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">vlf</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">x</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&lt;</span>  <span class="ruby-identifier">vlf</span>[<span class="ruby-value">1</span>]
+                        <span class="ruby-identifier">total_vlf</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">y</span>[<span class="ruby-identifier">i</span>]
+                <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">x</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">lf</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">x</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">lf</span>[<span class="ruby-value">1</span>]
+                        <span class="ruby-identifier">total_lf</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">y</span>[<span class="ruby-identifier">i</span>]
+                <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">x</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">hf</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">x</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">hf</span>[<span class="ruby-value">1</span>]
+                        <span class="ruby-identifier">total_hf</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">y</span>[<span class="ruby-identifier">i</span>]
+                <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">x</span>[<span class="ruby-identifier">i</span>] <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">hf</span>[<span class="ruby-value">1</span>]
+                        <span class="ruby-keyword">break</span>
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment"># Return true is LF &gt; 50% of total.</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">total_lf</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0.5</span>*(<span class="ruby-identifier">total_vlf</span><span class="ruby-operator">+</span><span class="ruby-identifier">total_lf</span><span class="ruby-operator">+</span><span class="ruby-identifier">total_hf</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- is_resonant-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- is_resonant-method -->
+
+    
+      <div id="method-c-min_max" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">min_max</span><span
+            class="method-args">(vector)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns minimum and maximum values.</p>
+          
+
+          
+          <div class="method-source-code" id="min_max-source">
+            <pre><span class="ruby-comment"># File lib/lomb.rb, line 191</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">min_max</span>(<span class="ruby-identifier">vector</span>)
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">vector</span>.<span class="ruby-identifier">minmax</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- min_max-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- min_max-method -->
+
+    
+      <div id="method-c-realft" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">realft</span><span
+            class="method-args">(data)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>???</p>
+          
+
+          
+          <div class="method-source-code" id="realft-source">
+            <pre><span class="ruby-comment"># File lib/lomb.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">realft</span>(<span class="ruby-identifier">data</span>)
+        <span class="ruby-comment">## Do Fourier transform?</span>
+        <span class="ruby-identifier">fourier</span>(<span class="ruby-identifier">data</span>)
+        <span class="ruby-comment">## Variables?</span>
+        <span class="ruby-identifier">theta</span> = <span class="ruby-constant">Math</span><span class="ruby-operator">::</span><span class="ruby-constant">PI</span><span class="ruby-operator">/</span>(<span class="ruby-identifier">data</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>)
+        <span class="ruby-identifier">wtemp</span> = <span class="ruby-constant">Math</span>.<span class="ruby-identifier">sin</span>(<span class="ruby-value">0.5</span>*<span class="ruby-identifier">theta</span>)
+        <span class="ruby-identifier">wpreal</span> = <span class="ruby-value">-2.0</span>*<span class="ruby-identifier">wtemp</span>*<span class="ruby-identifier">wtemp</span>
+        <span class="ruby-identifier">wpimag</span> = <span class="ruby-constant">Math</span>.<span class="ruby-identifier">sin</span>(<span class="ruby-identifier">theta</span>)
+        <span class="ruby-identifier">wreal</span> = <span class="ruby-value">1.0</span><span class="ruby-operator">+</span><span class="ruby-identifier">wpreal</span>
+        <span class="ruby-identifier">wimag</span> = <span class="ruby-identifier">wpimag</span>
+        <span class="ruby-comment">## ???</span>
+        <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> (<span class="ruby-value">2</span><span class="ruby-operator">..</span><span class="ruby-identifier">data</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">/</span><span class="ruby-value">4</span>)
+                <span class="ruby-comment">## Variables?</span>
+                <span class="ruby-identifier">i1</span> = <span class="ruby-value">2</span>*<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-value">2</span>
+                <span class="ruby-identifier">i2</span> = <span class="ruby-identifier">i1</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>
+                <span class="ruby-identifier">i3</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">-</span><span class="ruby-identifier">i2</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>
+                <span class="ruby-identifier">i4</span> = <span class="ruby-identifier">i3</span><span class="ruby-operator">+</span><span class="ruby-value">1</span>
+                <span class="ruby-comment">## ???</span>
+                <span class="ruby-identifier">h1r</span> = <span class="ruby-value">0.5</span>*(<span class="ruby-identifier">data</span>[<span class="ruby-identifier">i1</span>]<span class="ruby-operator">+</span><span class="ruby-identifier">data</span>[<span class="ruby-identifier">i3</span>])
+                <span class="ruby-identifier">h1i</span> = <span class="ruby-value">0.5</span>*(<span class="ruby-identifier">data</span>[<span class="ruby-identifier">i2</span>]<span class="ruby-operator">-</span><span class="ruby-identifier">data</span>[<span class="ruby-identifier">i4</span>])
+                <span class="ruby-identifier">h2r</span> = <span class="ruby-value">0.5</span>*(<span class="ruby-identifier">data</span>[<span class="ruby-identifier">i2</span>]<span class="ruby-operator">+</span><span class="ruby-identifier">data</span>[<span class="ruby-identifier">i4</span>])
+                <span class="ruby-identifier">h2i</span> = <span class="ruby-value">-0.5</span>*(<span class="ruby-identifier">data</span>[<span class="ruby-identifier">i1</span>]<span class="ruby-operator">-</span><span class="ruby-identifier">data</span>[<span class="ruby-identifier">i3</span>])
+                <span class="ruby-comment">## ???</span>
+                <span class="ruby-identifier">data</span>[<span class="ruby-identifier">i1</span>] = <span class="ruby-identifier">h1r</span><span class="ruby-operator">+</span><span class="ruby-identifier">wreal</span>*<span class="ruby-identifier">h2r</span><span class="ruby-operator">-</span><span class="ruby-identifier">wimag</span>*<span class="ruby-identifier">h2i</span>
+                <span class="ruby-identifier">data</span>[<span class="ruby-identifier">i2</span>] = <span class="ruby-identifier">h1i</span><span class="ruby-operator">+</span><span class="ruby-identifier">wreal</span>*<span class="ruby-identifier">h2i</span><span class="ruby-operator">+</span><span class="ruby-identifier">wimag</span>*<span class="ruby-identifier">h2r</span>
+                <span class="ruby-identifier">data</span>[<span class="ruby-identifier">i3</span>] = <span class="ruby-identifier">h1r</span><span class="ruby-operator">-</span><span class="ruby-identifier">wreal</span>*<span class="ruby-identifier">h2r</span><span class="ruby-operator">+</span><span class="ruby-identifier">wimag</span>*<span class="ruby-identifier">h2i</span>
+                <span class="ruby-identifier">data</span>[<span class="ruby-identifier">i4</span>] = <span class="ruby-operator">-</span><span class="ruby-identifier">h1i</span><span class="ruby-operator">+</span><span class="ruby-identifier">wreal</span>*<span class="ruby-identifier">h2i</span><span class="ruby-operator">+</span><span class="ruby-identifier">wimag</span>*<span class="ruby-identifier">h2r</span>
+                <span class="ruby-comment">## Update variables?</span>
+                <span class="ruby-identifier">wreal</span> = (<span class="ruby-identifier">wtemp</span> = <span class="ruby-identifier">wreal</span>)*<span class="ruby-identifier">wpreal</span><span class="ruby-operator">-</span><span class="ruby-identifier">wimag</span>*<span class="ruby-identifier">wpimag</span><span class="ruby-operator">+</span><span class="ruby-identifier">wreal</span>
+                <span class="ruby-identifier">wimag</span> = <span class="ruby-identifier">wimag</span>*<span class="ruby-identifier">wpreal</span><span class="ruby-operator">+</span><span class="ruby-identifier">wtemp</span>*<span class="ruby-identifier">wpimag</span><span class="ruby-operator">+</span><span class="ruby-identifier">wimag</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">data</span>[<span class="ruby-value">0</span>] = (<span class="ruby-identifier">h1r</span> = <span class="ruby-identifier">data</span>[<span class="ruby-value">0</span>])<span class="ruby-operator">+</span><span class="ruby-identifier">data</span>[<span class="ruby-value">1</span>]
+        <span class="ruby-identifier">data</span>[<span class="ruby-value">1</span>] = <span class="ruby-identifier">h1r</span><span class="ruby-operator">-</span><span class="ruby-identifier">data</span>[<span class="ruby-value">1</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- realft-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- realft-method -->
+
+    
+      <div id="method-c-sign" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sign</span><span
+            class="method-args">(b, a)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns |b| if a &gt; 0; else -|b|.</p>
+          
+
+          
+          <div class="method-source-code" id="sign-source">
+            <pre><span class="ruby-comment"># File lib/lomb.rb, line 214</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sign</span>(<span class="ruby-identifier">b</span>, <span class="ruby-identifier">a</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">a</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+                <span class="ruby-keyword">return</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">abs</span>
+        <span class="ruby-keyword">else</span>
+                <span class="ruby-keyword">return</span> <span class="ruby-value">-1.0</span>*(<span class="ruby-identifier">b</span>.<span class="ruby-identifier">abs</span>)
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- sign-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- sign-method -->
+
+    
+      <div id="method-c-spread" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">spread</span><span
+            class="method-args">(x, y, data)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>???</p>
+          
+
+          
+          <div class="method-source-code" id="spread-source">
+            <pre><span class="ruby-comment"># File lib/lomb.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">spread</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>, <span class="ruby-identifier">data</span>)
+        <span class="ruby-comment">## ???</span>
+        <span class="ruby-keyword">if</span> (<span class="ruby-identifier">x</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">to_i</span>.<span class="ruby-identifier">to_f</span>) 
+                <span class="ruby-identifier">data</span>[<span class="ruby-identifier">x</span>.<span class="ruby-identifier">to_i</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>] <span class="ruby-operator">+=</span> <span class="ruby-identifier">y</span>
+        <span class="ruby-keyword">else</span> 
+                <span class="ruby-comment">## Variables?</span>
+                <span class="ruby-identifier">ihi</span> = (<span class="ruby-identifier">ilo</span> = ([[<span class="ruby-identifier">x</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>, <span class="ruby-value">1</span>].<span class="ruby-identifier">max</span>, <span class="ruby-identifier">data</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">-</span><span class="ruby-value">5</span>].<span class="ruby-identifier">min</span>).<span class="ruby-identifier">to_i</span>)<span class="ruby-operator">+</span><span class="ruby-value">3</span>
+                <span class="ruby-identifier">nden</span> = <span class="ruby-value">6.0</span>
+                <span class="ruby-identifier">fac</span> = <span class="ruby-identifier">x</span><span class="ruby-operator">-</span><span class="ruby-identifier">ilo</span>
+                <span class="ruby-comment">## ???</span>
+                <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> (<span class="ruby-identifier">ilo</span><span class="ruby-operator">+</span><span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-identifier">ihi</span>)
+                        <span class="ruby-identifier">fac</span> <span class="ruby-operator">*=</span> (<span class="ruby-identifier">x</span><span class="ruby-operator">-</span><span class="ruby-identifier">i</span>)
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-comment">## ???</span>
+                <span class="ruby-identifier">data</span>[<span class="ruby-identifier">ihi</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>] <span class="ruby-operator">+=</span> <span class="ruby-identifier">y</span>*<span class="ruby-identifier">fac</span><span class="ruby-operator">/</span>(<span class="ruby-identifier">nden</span>*(<span class="ruby-identifier">x</span><span class="ruby-operator">-</span><span class="ruby-identifier">ihi</span>))
+                <span class="ruby-comment">## ???</span>
+                <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> (<span class="ruby-identifier">ihi</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>).<span class="ruby-identifier">downto</span>(<span class="ruby-identifier">ilo</span>)
+                        <span class="ruby-identifier">nden</span> = (<span class="ruby-identifier">nden</span><span class="ruby-operator">/</span>(<span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-value">1</span><span class="ruby-operator">-</span><span class="ruby-identifier">ilo</span>).<span class="ruby-identifier">to_f</span>)*(<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-identifier">ihi</span>).<span class="ruby-identifier">to_f</span>
+                        <span class="ruby-identifier">data</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>] <span class="ruby-operator">+=</span> <span class="ruby-identifier">y</span>*<span class="ruby-identifier">fac</span>.<span class="ruby-identifier">to_f</span><span class="ruby-operator">/</span>(<span class="ruby-identifier">nden</span>*(<span class="ruby-identifier">x</span><span class="ruby-operator">-</span><span class="ruby-identifier">i</span>)).<span class="ruby-identifier">to_f</span>
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- spread-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- spread-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.2.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
