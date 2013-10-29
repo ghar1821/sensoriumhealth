@@ -13,5 +13,9 @@ before_filter :authenticate_user!
   	@users = User.all
   end
 
+  def show_relaxation_session
+  	@user = current_user
+  	@relaxation_sessions = RelaxationSession.where(:username => @user.username)
+  end
  
 end

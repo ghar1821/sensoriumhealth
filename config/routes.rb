@@ -15,6 +15,7 @@ SensoriumhealthDevise::Application.routes.draw do
   match '/dispatch_email', to: 'emailer#dispatch_email', as: "dispatch_email", via: 'post'
 
   match '/parse_xml', to: 'admin#parse_xml', via:'get'
+  match '/relaxation_session', to: 'user#show_relaxation_session', via:'get'
 
 
     # Where to redirect user upon login
