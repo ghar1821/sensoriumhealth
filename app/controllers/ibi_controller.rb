@@ -1,9 +1,10 @@
 require "numbers" 
 require "analysis"
 require "lomb"
-require 'nokogiri'
+
 
 class IbiController < ApplicationController
+    # Showing graphs
 	def index
         # Set threshold variables 
         @resonance_baseline = 50

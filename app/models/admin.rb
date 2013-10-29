@@ -4,6 +4,7 @@ class Admin < ActiveRecord::Base
   devise :database_authenticatable, :timeoutable, :lockable,
          :recoverable, :rememberable, :trackable, :validatable
 
+    # Allow login using username or email.
 	def self.find_first_by_auth_conditions(warden_conditions)
 	  conditions = warden_conditions.dup
 	  if login = conditions.delete(:login)
@@ -13,6 +14,7 @@ class Admin < ActiveRecord::Base
 	  end
 	end  
 
+	# Allowing login for admin.
 	attr_accessor :login    
 
 end

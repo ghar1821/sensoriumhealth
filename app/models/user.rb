@@ -25,8 +25,10 @@ class User < ActiveRecord::Base
 
   validates_format_of :email, :with => Devise.email_regexp
 
+  # Set default longest_time_in_resonance to 00:00:00 before saving user
   before_save :default_resonance
 
+  # Allow user to login using username or email
   def self.find_first_by_auth_conditions(warden_conditions)
       conditions = warden_conditions.dup
       if login = conditions.delete(:login)
@@ -36,10 +38,12 @@ class User < ActiveRecord::Base
       end
   end    
 
+  # Set default longest_time_in_resonance to 00:00:00
   def default_resonance
     self.longest_time_in_resonance ||= "2000-01-01 00:00:00"
   end  
 
+  # Allow user to login and accept terms and conditions
   attr_accessor :login, :terms
 
   validates_acceptance_of :terms

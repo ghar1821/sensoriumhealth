@@ -2,15 +2,15 @@ require 'nokogiri'
 class AdminController < ApplicationController
 before_filter :authenticate_admin!
 
-  def index
-  	@users = User.all
-  end
+	# Admin dashboard, showing all users
+	def show
+		@users = User.all
+	end
 
-  def show
-  	@users = User.all
-  end
-
-  def parse_xml
+	# Function to parse offline xml stored in data folder.
+	# Using nokogiri gem.
+	# Please search nokogiri documentation on google to learn how it works.
+	def parse_xml
 
 		filename = File.join(Rails.root, 'data', 'sampleSession.xml')
 		f = File.open(filename)
@@ -32,21 +32,21 @@ before_filter :authenticate_admin!
 		session.save
 
 		@doc.css('beat').each do |node|
-            children = node.children
+	        children = node.children
 
-            ibi = session.ibis.create(
-            	:beat_count => children.css('count').inner_text,
-            	:beat_time => children.css('timestamp').inner_text,
-            	:beat_value => children.css('value').inner_text)
-        end
+	        ibi = session.ibis.create(
+	        	:beat_count => children.css('count').inner_text,
+	        	:beat_time => children.css('timestamp').inner_text,
+	        	:beat_value => children.css('value').inner_text)
+	    end
 
-        @doc.css('sensor_reliability').each do |node|
-            children = node.children
+	    @doc.css('sensor_reliability').each do |node|
+	        children = node.children
 
-            status = session.statuses.create(
-            	:sensor_reliability_value => children.css('value').inner_text,
-            	:sensor_reliability_time => children.css('timestamp').inner_text)
-        end
+	        status = session.statuses.create(
+	        	:sensor_reliability_value => children.css('value').inner_text,
+	        	:sensor_reliability_time => children.css('timestamp').inner_text)
+	    end
 
 		f.close
 		
