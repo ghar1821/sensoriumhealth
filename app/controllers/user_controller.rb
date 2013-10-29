@@ -1,5 +1,5 @@
 class UserController < ApplicationController
-before_filter :authenticate_user!
+before_filter :new_authenticate
 
   def index
   	@users = User.all
@@ -17,5 +17,12 @@ before_filter :authenticate_user!
   	@user = current_user
   	@relaxation_sessions = RelaxationSession.where(:username => @user.username)
   end
+
+  def new_authenticate
+	  if !current_admin and !current_user
+	    authenticate_user
+	  end
+
+end
  
 end

@@ -17,14 +17,16 @@
   </tr>
     <% @users.each do |u| %>
       <tr>
-        <td><%= gravatar_for u %>&nbsp;&nbsp;&nbsp;<%= u.username %></td>
+        <td><%= gravatar_for u %>&nbsp;&nbsp;&nbsp;<%=link_to u.username, u %></td>
         <td><%= u.email %></td>
         <td><%= u.gender %></td>
         <td><%= u.city %></td>
         <td><%= u.last_sign_in_at %></td>
+
       </tr>
     <% end %>
     </tbody>
+
 </table>
 </div>
 </body>

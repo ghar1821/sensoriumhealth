@@ -1,0 +1,36 @@
+<% provide(:title, @user.username) %>
+<!DOCTYPE html>
+<html>
+<head>
+    <h1>Relaxation sessions </h1>
+</head>
+<body>
+    <div>
+<table class="table table-hover" border="1" >
+<tbody>
+  <tr>
+    <th>Device ID</th>
+    <th>Session start date</th>
+    <th>Session start time</th>
+    <th>Session end date</th>
+    <th>Session end time</th>
+  </tr>
+    <% @relaxation_sessions.each do |r| %>
+      <tr>
+        <td><%= r.device_id %></td>
+        <td><%= r.session_start_date %></td>
+        <td><%= r.session_start_time %></td>
+        <td><%= r.session_end_date %></td>
+        <td><%= r.session_end_time %></td>
+      </tr>
+    <% end %>
+    </tbody>
+</table>
+</div>
+</body>
+<body>
+
+</body>
+</html>
+
+
