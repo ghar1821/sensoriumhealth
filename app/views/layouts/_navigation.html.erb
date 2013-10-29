@@ -13,6 +13,11 @@
      <li>
     <%= link_to('Send email', send_email_path) %>
     </li>
+
+    <li>
+    <%= link_to('Parse XML', parse_xml_path) %>
+    </li>
+
     <li>
     <%= link_to('Logout', destroy_admin_session_path, :method=>'delete') %>
     </li>
@@ -31,7 +36,7 @@
     <li>
       <%= link_to('Graph', graph_path) %>
     </li>
-  <% else %>
+  <% elsif !admin_signed_in? %>
     <li>
     <%= link_to('Sign up', new_user_registration_path)  %>
     </li>

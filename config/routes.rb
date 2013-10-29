@@ -14,6 +14,9 @@ SensoriumhealthDevise::Application.routes.draw do
   match '/send_email', to: 'emailer#contact', via: 'get'
   match '/dispatch_email', to: 'emailer#dispatch_email', as: "dispatch_email", via: 'post'
 
+  match '/parse_xml', to: 'admin#parse_xml', via:'get'
+
+
     # Where to redirect user upon login
     #authenticated :user do
     #root :to => 'user#show'
@@ -25,6 +28,7 @@ SensoriumhealthDevise::Application.routes.draw do
 
     resources :relaxation_sessions
       match '/graph', to: 'ibi#index', via:'get'
+
 
 
 end

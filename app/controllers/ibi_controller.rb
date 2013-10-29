@@ -1,6 +1,7 @@
 require "numbers" 
 require "analysis"
 require "lomb"
+require 'nokogiri'
 
 class IbiController < ApplicationController
 	def index
@@ -42,4 +43,6 @@ class IbiController < ApplicationController
 		@total_time = ((@time.last)/60).floor
 		@other_time = 6
     end
+
+    
 end

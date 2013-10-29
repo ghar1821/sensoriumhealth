@@ -25,6 +25,7 @@ gem "simple_form", "~> 3.0.0"
 
 gem "tlsmail", "~> 0.0.1"
 
+gem "nokogiri", "~> 1.6.0"
 
 group :development, :test do
     gem 'rspec-rails', "~> 2.14.0"
