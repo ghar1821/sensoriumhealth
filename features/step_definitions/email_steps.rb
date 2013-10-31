@@ -204,3 +204,18 @@ end
 Then /^save and open all raw emails$/ do
   EmailSpec::EmailViewer::save_and_open_all_raw_emails
 end
+
+
+
+
+
+
+Then /^it should send user a? "([^\"]*)" e\-mail$/ do |arg1|
+  @email = ActionMailer::Base.deliveries.last
+  @email.to.should include @user.email
+  @email.subject.should include(arg1)
+end
+
+Then /^it should not send an e\-mail$/ do
+  ActionMailer::Base.deliveries.size.should eq 0
+end

@@ -1,27 +1,3 @@
-def create_visitor
-  @visitor ||= { :firstname => 'Test',
-                  :lastname => 'two',
-                  :email => 'usertwo@test.com',
-                  :year_of_birth => 1990,
-                  :gender => "Male",
-                  :city => "Sydney",
-                  :username => 'test',
-                  :password => 'password',
-                  :password_confirmation => 'password',
-                  :terms => "1",
-                 
-                }
-end
-
-def create_user
-  create_visitor
-  delete_user
-  @user = FactoryGirl.create(:user, @visitor)
-end
-def delete_user
-  @user ||= User.where(:email => @visitor[:email]).first
-  @user.destroy unless @user.nil?
-end
 ########## Admin account ###########
 def create_admin_details
   @admin_details ||= {
@@ -104,6 +80,19 @@ When /^I sign in with an invalid admin password$/ do
   sign_in_as_admin
 end
 
+When /^I visit send email link$/ do
+  click_link "Send email"
+end
+
+When /^I send email to all users$/ do
+  fill_in "user_info[body]", :with => "hello"
+  click_button "Send"
+end
+
+When /^I sign out as admin$/ do
+  visit '/admins/sign_out'
+end
+
 ### THEN ###
 Then /^I see a successful admin sign in message$/ do
   page.should have_content "Signed in successfully."
@@ -132,4 +121,12 @@ end
 
 Then /^I see an invalid admin login message$/ do
   page.should have_content "Invalid email or password."
+end
+
+Then /^I see message box$/ do
+  page.should have_content "Message"
+end
+
+Then /^I see email sent confirmation$/ do
+  page.should have_content "Sent!"
 end
