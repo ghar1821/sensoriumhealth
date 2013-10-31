@@ -15,6 +15,21 @@ def create_visitor
                 }
 end
 
+def create_invalid_yob_visitor
+  @visitor ||= { :firstname => 'Test',
+                  :lastname => 'two',
+                  :email => 'usertwo@test.com',
+                  :gender => "Male",
+                  :city => "Sydney",
+                  :username => 'test',
+                  :password => 'password',
+                  :password_confirmation => 'password',
+                  :terms => "1",
+                 
+                }
+end
+
+
 def find_user
   @user ||= User.where(:email => @visitor[:email]).first
 end
@@ -54,9 +69,48 @@ def sign_up
   find_user
 end
 
+def sign_up_invalid_gender
+  delete_user
+  visit '/users/sign_up'
+  fill_in "user_firstname", :with => @visitor[:firstname]
+  fill_in "user_lastname", :with => @visitor[:lastname]
+  fill_in "user_username", :with => @visitor[:username]
+  select(@visitor[:year_of_birth], :from => "Year of birth")
+  select(@visitor[:city], :from => "user_city") 
+  check("Accept")
+  fill_in "user_email", :with => @visitor[:email]
+  fill_in "user_password", :with => @visitor[:password]
+  fill_in "user_password_confirmation", :with => @visitor[:password_confirmation]
+  click_button "Sign up"
+  find_user
+end
+
+def sign_up_untick_terms
+  delete_user
+  visit '/users/sign_up'
+  fill_in "user_firstname", :with => @visitor[:firstname]
+  fill_in "user_lastname", :with => @visitor[:lastname]
+  fill_in "user_username", :with => @visitor[:username]
+  select(@visitor[:year_of_birth], :from => "Year of birth")
+  choose @visitor[:gender]
+  select(@visitor[:city], :from => "user_city") 
+  fill_in "user_email", :with => @visitor[:email]
+  fill_in "user_password", :with => @visitor[:password]
+  fill_in "user_password_confirmation", :with => @visitor[:password_confirmation]
+  click_button "Sign up"
+  find_user
+end
+
 def sign_in
   visit '/users/sign_in'
   fill_in "Username or email", :with => @visitor[:email]
+  fill_in "Password", :with => @visitor[:password]
+  click_button "Sign in"
+end
+
+def sign_in_with_username
+  visit '/users/sign_in'
+  fill_in "Username or email", :with => @visitor[:username]
   fill_in "Password", :with => @visitor[:password]
   click_button "Sign in"
 end
@@ -99,12 +153,39 @@ When /^I sign up with valid user data$/ do
   sign_up
 end
 
+# Test for invalid emails #
 When /^I sign up with an invalid email$/ do
   create_visitor
   @visitor = @visitor.merge(:email => "notanemail")
   sign_up
 end
 
+When /^I sign up with a blank email$/ do
+  create_visitor
+  @visitor = @visitor.merge(:email => "")
+  sign_up
+end
+
+# Test for invalid username #
+When /^I sign up with a blank username$/ do
+  create_visitor
+  @visitor = @visitor.merge(:username => "")
+  sign_up
+end
+
+When /^I sign up with an invalid username$/ do
+  create_visitor
+  @visitor = @visitor.merge(:username => "!@!@!@!@")
+  sign_up
+end
+
+When /^I sign up with username that is too short$/ do
+  create_visitor
+  @visitor = @visitor.merge(:username => "as")
+  sign_up
+end
+
+# Test for invalid password #
 When /^I sign up without a password confirmation$/ do
   create_visitor
   @visitor = @visitor.merge(:password_confirmation => "")
@@ -117,19 +198,78 @@ When /^I sign up without a password$/ do
   sign_up
 end
 
+When /^I sign up with a password that is too short$/ do
+  create_visitor
+  @visitor = @visitor.merge(:password => "asdf")
+   @visitor = @visitor.merge(:password_confirmation => "asdf")
+  sign_up
+end
+
 When /^I sign up with a mismatched password confirmation$/ do
   create_visitor
   @visitor = @visitor.merge(:password_confirmation => "changeme123")
   sign_up
 end
 
+# Test for invalid firstname # 
+When /^I sign up without a firstname$/ do
+  create_visitor
+  @visitor = @visitor.merge(:firstname => "")
+  sign_up
+end
+
+When /^I sign up with an invalid firstname$/ do
+  create_visitor
+  @visitor = @visitor.merge(:firstname => "blah1234")
+  sign_up
+end
+
+# Test for invalid lastname # 
+When /^I sign up without a lastname$/ do
+  create_visitor
+  @visitor = @visitor.merge(:lastname => "")
+  sign_up
+end
+
+When /^I sign up with an invalid lastname$/ do
+  create_visitor
+  @visitor = @visitor.merge(:lastname => "blah1234")
+  sign_up
+end
+
+# Test without year of birth #
+When /^I sign up without year of birth$/ do
+  create_invalid_yob_visitor
+  sign_up
+end
+
+# Test without gender #
+When /^I sign up without gender$/ do
+  create_visitor
+  sign_up_invalid_gender
+end
+
+# Test untick terms #
+When /^I sign up without accepting terms of use and privacy policy$/ do
+  create_visitor
+  sign_up_untick_terms
+end
+
+
+
 When /^I return to the site$/ do
   visit '/'
 end
 
+# Test for sign in #
 When /^I sign in with a wrong email$/ do
   @visitor = @visitor.merge(:email => "wrong@example.com")
   sign_in
+end
+
+When /^I sign in with a wrong username$/ do
+  @visitor = @visitor.merge(:username => "wrong")
+  sign_in_with_username
 end
 
 When /^I sign in with a wrong password$/ do
@@ -137,9 +277,34 @@ When /^I sign in with a wrong password$/ do
   sign_in
 end
 
+# Test for editting account #
 When /^I edit my account details$/ do
   click_link "Edit account"
-  fill_in "user_firstname", :with => "newname"
+  fill_in "user_password", :with => "newnamee"
+  fill_in "user_password_confirmation", :with => "newnamee"
+  fill_in "user_current_password", :with => @visitor[:password]
+  click_button "Update"
+end
+
+When /^I edit my account details with wrong current password$/ do
+  click_link "Edit account"
+  fill_in "user_password", :with => "newnamee"
+  fill_in "user_password_confirmation", :with => "newnamee"
+  fill_in "user_current_password", :with => "asdfasdfasdfasdf"
+  click_button "Update"
+end
+
+When /^I edit my account details without filling in current password$/ do
+  click_link "Edit account"
+  fill_in "user_password", :with => "newnamee"
+  fill_in "user_password_confirmation", :with => "newnamee"
+  click_button "Update"
+end
+
+When /^I edit my account details with mismatched password$/ do
+  click_link "Edit account"
+  fill_in "user_password", :with => "newnamee"
+  fill_in "user_password_confirmation", :with => "newnameeeeee"
   fill_in "user_current_password", :with => @visitor[:password]
   click_button "Update"
 end
@@ -148,6 +313,12 @@ When /^I look at the list of users$/ do
   visit '/'
 end
 
+When /^I look at my profile$/ do
+  click_link "Profile"
+end
+
+
+#########################################################################################################
 ### THEN ###
 Then /^I should be signed in$/ do
   page.should have_content "Logout"
@@ -173,8 +344,26 @@ Then /^I should see a successful sign up message$/ do
   page.should have_content "A message with a confirmation link has been sent to your email address"
 end
 
+# Invalid email message #
 Then /^I should see an invalid email message$/ do
   page.should have_content "Emailis invalid"
+end
+
+Then /^I should see a blank email message$/ do
+  page.should have_content "Emailcan't be blank"
+end
+
+# Invalid username #
+Then /^I should see an invalid username message$/ do
+  page.should have_content "Usernameis invalid"
+end
+
+Then /^I should see a blank username message$/ do
+  page.should have_content "Usernamecan't be blank"
+end
+
+Then /^I should see a short username message$/ do
+  page.should have_content "Usernameis too short"
 end
 
 Then /^I should see a missing password message$/ do
@@ -187,6 +376,10 @@ end
 
 Then /^I should see a mismatched password message$/ do
   page.should have_content "Password confirmationdoesn't match Password"
+end
+
+Then /^I should see a short password message$/ do
+  page.should have_content "Passwordis too short"
 end
 
 Then /^I should see a signed out message$/ do
@@ -208,4 +401,50 @@ end
 
 Then /^show me the page$/ do
   save_and_open_page
+end
+
+# Invalid firstname message #
+Then /^I should see a missing firstname message$/ do
+  page.should have_content "Firstnamecan't be blank"
+end
+
+Then /^I should see an invalid firstname message$/ do
+  page.should have_content "Firstnameis invalid"
+end
+
+# Invalid lastname message #
+Then /^I should see a missing lastname message$/ do
+  page.should have_content "Lastnamecan't be blank"
+end
+
+Then /^I should see an invalid lastname message$/ do
+  page.should have_content "Lastnameis invalid"
+end
+
+# Blank year of birth message #
+Then /^I should see a blank year of birth message$/ do
+  page.should have_content "Year of birth19331934193519361937193819391940194119421943194419451946194719481949195019511952195319541955195619571958195919601961196219631964196519661967196819691970197119721973197419751976197719781979198019811982198319841985198619871988198919901991199219931994199519961997199819992000can't be blank"
+end
+
+# Blank year of birth message #
+Then /^I should see a blank gender message$/ do
+  page.should have_content "GenderMaleFemalecan't be blank"
+end
+
+# Blank privacy policy and terms of use message #
+Then /^I should see a blank terms and policy message$/ do
+  page.should have_content "Accept Terms of use and privacy Policy must be accepted"
+end
+
+# Edit account errors #
+Then /^I should see edit profile blank current password message$/ do
+  page.should have_content "Current passwordcan't be blank"
+end
+
+Then /^I should see edit profile invalid current password message$/ do
+  page.should have_content "Current passwordis invalid"
+end
+
+Then /^I should see edit profile password mismatched message$/ do
+  page.should have_content "Password confirmationdoesn't match Password"
 end

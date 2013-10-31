@@ -56,6 +56,8 @@ group :development do
     gem 'better_errors', '~> 1.0.1'
     gem 'binding_of_caller', '~> 0.7.2'
     gem "rails-erd", "~> 1.1.0"
+    gem "annotate", "~> 2.5.0"
+    gem "erbook", "~> 9.2.1"
 end
 
 # Use SCSS for stylesheets

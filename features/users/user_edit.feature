@@ -7,3 +7,18 @@ Feature: Edit User
       Given I am logged in
       When I edit my account details
       Then I should see an account edited message
+
+    Scenario: I sign in and edit my account without filling in current password
+    	Given I am logged in
+    	When I edit my account details without filling in current password
+    	Then I should see edit profile blank current password message
+
+     Scenario: I sign in and edit my account with wrong current password
+    	Given I am logged in
+    	When I edit my account details with wrong current password
+    	Then I should see edit profile invalid current password message
+
+    Scenario: I sign in and edit my account details with mismatched password
+    	Given I am logged in
+    	When I edit my account details with mismatched password
+    	Then I should see edit profile password mismatched message
