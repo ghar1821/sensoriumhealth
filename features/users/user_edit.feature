@@ -22,3 +22,8 @@ Feature: Edit User
     	Given I am logged in
     	When I edit my account details with mismatched password
     	Then I should see edit profile password mismatched message
+
+    Scenario: I sign in and cancel my account
+    	Given I am logged in
+    	When I cancel my account
+    	Then I should see a successful cancel account message

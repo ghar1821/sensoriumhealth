@@ -309,12 +309,22 @@ When /^I edit my account details with mismatched password$/ do
   click_button "Update"
 end
 
+When /^I cancel my account$/ do
+  click_link "Edit account"
+  click_link "Cancel my account"
+end
+
 When /^I look at the list of users$/ do
   visit '/'
 end
 
 When /^I look at my profile$/ do
   click_link "Profile"
+end
+
+# CHECK LEADERBOARD #
+When /^I look at the leaderboard$/ do
+  click_link "Leaderboard"
 end
 
 
@@ -447,4 +457,25 @@ end
 
 Then /^I should see edit profile password mismatched message$/ do
   page.should have_content "Password confirmationdoesn't match Password"
+end
+
+Then /^I should see a successful cancel account message$/ do
+  page.should have_content "Bye! Your account was successfully cancelled. We hope to see you again soon."
+end
+
+# CHECK LEADERBOARD #
+Then /^I should see the leaderboard heading$/ do
+  page.should have_content "Leaderboard"
+end
+
+Then /^I should see my username table entry$/ do
+  page.should have_content @visitor[:username]
+end
+
+Then /^I should see the longest time in resonance heading$/ do
+  page.should have_content "Longest time in resonance"
+end
+
+Then /^I should see the entry is 00:00:00$/ do
+  page.should have_content "00:00:00"
 end
