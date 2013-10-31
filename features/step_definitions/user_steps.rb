@@ -44,12 +44,13 @@ end
 
 def create_session
   create_session_details
-  
   @session = FactoryGirl.create(:relaxation_session, @session)
 end
 
 
 ####### ################## #########
+
+
 
 def find_user
   @user ||= User.where(:email => @visitor[:email]).first
@@ -136,6 +137,8 @@ def sign_in_with_username
   click_button "Sign in"
 end
 
+
+
 ### GIVEN ###
 Given /^I am not logged in$/ do
   visit '/users/sign_out'
@@ -162,6 +165,7 @@ end
 Given /^I have a relaxation session$/ do
   create_session
 end
+
 
 ### WHEN ###
 
