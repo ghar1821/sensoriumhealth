@@ -29,6 +29,27 @@ def create_invalid_yob_visitor
                 }
 end
 
+####### Relaxation session #########
+def create_session_details
+  @session ||= {
+    :device_id => 'B6F3384B-E816-4C4D-6FA8-465226DF6D1E',
+    :username => 'test',
+    :timezone => '+1000',
+    :session_start_time => "06:43:15.2",
+    :session_start_date => "2013-05-18",
+    :session_end_time => "06:43:25.2",
+    :session_end_date => "2013-05-18",
+  }
+end
+
+def create_session
+  create_session_details
+  
+  @session = FactoryGirl.create(:relaxation_session, @session)
+end
+
+
+####### ################## #########
 
 def find_user
   @user ||= User.where(:email => @visitor[:email]).first
@@ -138,7 +159,17 @@ Given /^I exist as an unconfirmed user$/ do
   create_unconfirmed_user
 end
 
+Given /^I have a relaxation session$/ do
+  create_session
+end
+
 ### WHEN ###
+
+When /^I check my relaxation session$/ do
+  first(:link, "Relaxation session").click
+  # click_link "Relaxation session"
+end
+
 When /^I sign in with valid credentials$/ do
   create_visitor
   sign_in
@@ -478,4 +509,28 @@ end
 
 Then /^I should see the entry is 00:00:00$/ do
   page.should have_content "00:00:00"
+end
+
+Then /^I should see the table heading$/ do
+  page.should have_content "Relaxation sessions   Device ID   Session start date  Session start time  Session end date  Session end time"
+end
+
+Then /^I should see my relaxation session device entry$/ do
+  page.should have_content @session[:device_id]   
+end
+
+Then /^I should see my relaxation session start time entry$/ do
+  page.should have_content @session[:session_start_time]   
+end
+
+Then /^I should see my relaxation session start date entry$/ do
+  page.should have_content @session[:session_start_date]   
+end
+
+Then /^I should see my relaxation session ending time entry$/ do
+  page.should have_content @session[:session_end_time]   
+end
+
+Then /^I should see my relaxation session ending date entry$/ do
+  page.should have_content @session[:session_end_date]   
 end
